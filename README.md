@@ -1,6 +1,19 @@
 # TriLingua
 
-TriLingua is a local English, Tamil, and Kannada machine translation project. Stage 2 adds a browser-based inference engine using the downloaded IndicTrans2 ONNX models and ONNX Runtime Web.
+TriLingua is a local English, Tamil, and Kannada machine translation project. It uses downloaded IndicTrans2 ONNX models and ONNX Runtime Web in the browser. Stage 3 adds explainable preprocessing and model-tokenizer-based chunking; Stage 4 provides a responsive translation workspace with local history, glossary tools, and settings.
+
+## Features
+
+- Translate between English, Tamil, and Kannada in all six directions.
+- Run IndicTrans2 locally in the browser without a translation API.
+- Inspect actual NLP and tokenizer diagnostics.
+- Manage preferred terminology and optional English spelling suggestions.
+- Keep up to 20 successful translations in local browser storage; history can be disabled.
+- Use responsive desktop and mobile layouts with Tamil/Kannada system-font fallbacks.
+
+## Screenshots
+
+Screenshots will be added after a visual browser capture is performed. No fabricated images are included.
 
 ## Supported directions
 
