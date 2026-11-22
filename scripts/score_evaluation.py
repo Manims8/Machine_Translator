@@ -58,7 +58,7 @@ def main():
         times=[float(predmap[x['id']]['translation_time_ms']) for x in refs]
         results.append({'direction':name,'status':'complete','sentences':expected,'successful':sum(p.get('status') == 'success' for p in preds),'failed':sum(p.get('status') != 'success' for p in preds),'bleu':bleu.score,'bleu_signature':str(bleu_metric.get_signature()),'precisions':bleu.precisions,'brevity_penalty':bleu.bp,'chrf++':chrf.score,'chrf_signature':str(chrf_metric.get_signature()),'time_mean_ms':statistics.mean(times),'time_median_ms':statistics.median(times),'sacrebleu':sacrebleu.__version__,'indicnlp':'0.92','preprocessing':'IndicNormalizerFactory + trivial_tokenize; English 13a','examples':[{'id':x['id'],'source':x['source'],'reference':x['reference'],'prediction':predmap[x['id']]['prediction']} for x in refs[:3]]})
     out=ROOT/'results';out.mkdir(exist_ok=True)
-    failure_name='failed_predictions.json' if a.mode=='pilot' else 'failed_predictions.json'
+    failure_name='pilot_failed_predictions.json' if a.mode=='pilot' else 'failed_predictions.json'
     (out/failure_name).write_text(json.dumps(failures,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     if failures:print(json.dumps({'valid':False,'failed_directions':len(failures)}));sys.exit(2)
     if a.validate_only:print(json.dumps({'valid':True,'directions':len(results),'expected_each':expected}));return
