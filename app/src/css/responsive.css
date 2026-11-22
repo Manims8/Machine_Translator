@@ -1,0 +1,17 @@
+@media (max-width: 680px) {
+  .page-shell { width: min(100% - 24px, 560px); padding-top: 32px; }
+  .translator-card { padding: 20px 16px; border-radius: 15px; }
+  .section-heading { align-items: flex-start; flex-direction: column; }
+  .language-row { grid-template-columns: 1fr 40px 1fr; gap: 7px; }
+  .swap-button { width: 38px; height: 38px; }
+  .text-columns { grid-template-columns: 1fr; }
+  .text-field textarea, .translation-output { min-height: 150px; }
+  .action-row { flex-wrap: wrap; }
+  .load-time { flex-basis: 100%; margin: 2px 0 0; }
+}
+
+@media (max-width: 390px) {
+  .local-badge { white-space: normal; }
+  .language-field { font-size: .75rem; }
+  .language-field select { padding: 0 8px; }
+}

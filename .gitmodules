@@ -1,0 +1,3 @@
+[submodule "references/indictrans2-onnx-browser-demo"]
+	path = references/indictrans2-onnx-browser-demo
+	url = https://github.com/Hari31416/indictrans2-onnx-browser-demo.git

@@ -1,0 +1,147 @@
+{
+  "project": "TriLingua",
+  "models": [
+    {
+      "name": "English to Indic",
+      "repo_id": "hari31416/indictrans2-en-indic-dist-200M-ONNX",
+      "direction": "English to Indic",
+      "base_model_parameter_size": "200M",
+      "model_format": "ONNX",
+      "precision": "FP32",
+      "local_dir": "models/indictrans2/en-indic-200m-fp32",
+      "source_languages": [
+        "eng_Latn"
+      ],
+      "target_languages": [
+        "tam_Taml",
+        "kan_Knda"
+      ],
+      "required_graph_files": [
+        "encoder_model.onnx",
+        "decoder_model.onnx",
+        "decoder_with_past_model.onnx"
+      ],
+      "required_sidecar_files": [
+        "encoder_model.onnx.data",
+        "decoder_shared.onnx.data"
+      ],
+      "tokenizer_files": [
+        "tokenizer_src.json",
+        "tokenizer_tgt.json",
+        "tokenizer_meta.json"
+      ],
+      "download_status": "completed",
+      "verification_status": "passed",
+      "graph_load_results": {
+        "encoder_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        },
+        "decoder_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        },
+        "decoder_with_past_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        }
+      },
+      "size_bytes": 1136925513
+    },
+    {
+      "name": "Indic to English",
+      "repo_id": "hari31416/indictrans2-indic-en-dist-200M-ONNX",
+      "direction": "Indic to English",
+      "base_model_parameter_size": "200M",
+      "model_format": "ONNX",
+      "precision": "FP32",
+      "local_dir": "models/indictrans2/indic-en-200m-fp32",
+      "source_languages": [
+        "tam_Taml",
+        "kan_Knda"
+      ],
+      "target_languages": [
+        "eng_Latn"
+      ],
+      "required_graph_files": [
+        "encoder_model.onnx",
+        "decoder_model.onnx",
+        "decoder_with_past_model.onnx"
+      ],
+      "required_sidecar_files": [
+        "encoder_model.onnx.data",
+        "decoder_shared.onnx.data"
+      ],
+      "tokenizer_files": [
+        "tokenizer_src.json",
+        "tokenizer_tgt.json",
+        "tokenizer_meta.json"
+      ],
+      "download_status": "completed",
+      "verification_status": "passed",
+      "graph_load_results": {
+        "encoder_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        },
+        "decoder_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        },
+        "decoder_with_past_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        }
+      },
+      "size_bytes": 951712545
+    },
+    {
+      "name": "Indic to Indic",
+      "repo_id": "hari31416/indictrans2-indic-indic-dist-320M-ONNX",
+      "direction": "Indic to Indic",
+      "base_model_parameter_size": "320M",
+      "model_format": "ONNX",
+      "precision": "FP32",
+      "local_dir": "models/indictrans2/indic-indic-320m-fp32",
+      "source_languages": [
+        "tam_Taml",
+        "kan_Knda"
+      ],
+      "target_languages": [
+        "tam_Taml",
+        "kan_Knda"
+      ],
+      "required_graph_files": [
+        "encoder_model.onnx",
+        "decoder_model.onnx",
+        "decoder_with_past_model.onnx"
+      ],
+      "required_sidecar_files": [
+        "encoder_model.onnx.data",
+        "decoder_shared.onnx.data"
+      ],
+      "tokenizer_files": [
+        "tokenizer_src.json",
+        "tokenizer_tgt.json",
+        "tokenizer_meta.json"
+      ],
+      "download_status": "completed",
+      "verification_status": "passed",
+      "graph_load_results": {
+        "encoder_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        },
+        "decoder_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        },
+        "decoder_with_past_model.onnx": {
+          "ok": true,
+          "detail": "loaded (CPUExecutionProvider)"
+        }
+      },
+      "size_bytes": 1347246950
+    }
+  ]
+}

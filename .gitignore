@@ -1,0 +1,10 @@
+.venv/
+node_modules/
+dist/
+models/indictrans2/*
+!models/indictrans2/model_manifest.json
+__pycache__/
+*.pyc
+.env
+.cache/
+.vscode/

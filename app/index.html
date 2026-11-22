@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f6f7" />
+    <title>TriLingua | Local Translation Engine</title>
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <p class="eyebrow">STAGE 2 · LOCAL INFERENCE</p>
+        <h1>TriLingua</h1>
+        <p class="intro">Translate between English, Tamil, and Kannada on this device.</p>
+      </header>
+
+      <section class="translator-card" aria-labelledby="translator-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PRETRAINED INDIC TRANS 2</p>
+            <h2 id="translator-heading">Translation engine</h2>
+          </div>
+          <span class="local-badge"><span></span> Models served locally</span>
+        </div>
+
+        <div class="language-row">
+          <label class="field language-field">
+            <span>Translate from</span>
+            <select id="source-language" aria-label="Source language"></select>
+          </label>
+          <button id="swap-languages" class="swap-button" type="button" aria-label="Swap languages" title="Swap languages">⇄</button>
+          <label class="field language-field">
+            <span>Translate to</span>
+            <select id="target-language" aria-label="Target language"></select>
+          </label>
+        </div>
+
+        <div class="model-row">
+          <span>Selected model</span>
+          <strong id="model-family">English → Indic (200M)</strong>
+        </div>
+
+        <div class="text-columns">
+          <label class="field text-field">
+            <span>Your text</span>
+            <textarea id="source-text" rows="7" maxlength="5000" placeholder="Enter a sentence to translate…"></textarea>
+            <span id="character-count" class="field-note">0 / 5000 characters</span>
+          </label>
+          <div class="field text-field output-field">
+            <label for="translation-output">Translation</label>
+            <div id="translation-output" class="translation-output" role="status" aria-live="polite">Your translation will appear here.</div>
+            <span id="translation-time" class="field-note">Translation time will appear here.</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="translate-button" class="primary-button" type="button">Translate</button>
+          <button id="unload-button" class="secondary-button" type="button" disabled>Unload model</button>
+          <span id="load-time" class="field-note load-time">No model loaded</span>
+        </div>
+
+        <div class="progress-panel" aria-live="polite">
+          <div class="progress-copy">
+            <span id="model-status">Ready. The model will load when you translate.</span>
+            <span id="progress-percent"></span>
+          </div>
+          <progress id="model-progress" max="100" value="0"></progress>
+        </div>
+        <p id="error-message" class="error-message" role="alert" hidden></p>
+      </section>
+
+      <p class="privacy-note">Your text and model files stay in this browser session. The translation engine makes no translation API calls.</p>
+      <pre id="smoke-output" class="smoke-output" hidden></pre>
+    </main>
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>

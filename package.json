@@ -1,0 +1,22 @@
+{
+  "name": "trilingua",
+  "version": "0.1.0",
+  "description": "Offline multilingual neural machine translation for English, Tamil and Kannada",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "smoke": "node scripts/run_browser_smoke.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.0.2",
+    "onnxruntime-web": "^1.21.0"
+  }
+}
