@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "smoke": "node scripts/run_browser_smoke.mjs"
+    "smoke": "node scripts/run_browser_smoke.mjs",
+    "benchmark:local": "node scripts/run_local_benchmark.mjs"
   },
   "keywords": [],
   "author": "",

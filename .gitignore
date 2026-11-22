@@ -18,6 +18,8 @@ __pycache__/
 playwright-report/
 test-results/
 browser-profile/
+evaluation/checkpoints/
+evaluation/logs/
 
 # Local FLORES benchmark data
 evaluation/dataset/flores200_devtest_parallel.jsonl
