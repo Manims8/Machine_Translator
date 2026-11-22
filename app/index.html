@@ -45,8 +45,8 @@
         <div class="text-columns">
           <label class="field text-field">
             <span>Your text</span>
-            <textarea id="source-text" rows="7" maxlength="5000" placeholder="Enter a sentence to translate…"></textarea>
-            <span id="character-count" class="field-note">0 / 5000 characters</span>
+            <textarea id="source-text" rows="7" maxlength="20000" placeholder="Enter a sentence to translate…"></textarea>
+            <span id="character-count" class="field-note">0 / 20000 characters</span>
           </label>
           <div class="field text-field output-field">
             <label for="translation-output">Translation</label>
@@ -54,6 +54,27 @@
             <span id="translation-time" class="field-note">Translation time will appear here.</span>
           </div>
         </div>
+
+        <details id="nlp-details" class="nlp-details">
+          <summary>NLP Processing Details</summary>
+          <p class="field-note">These are local diagnostics and optional terminology tools; they do not guarantee better translation quality.</p>
+          <dl id="diagnostics-grid" class="diagnostics-grid"></dl>
+          <section class="glossary-tools" aria-labelledby="glossary-heading">
+            <h3 id="glossary-heading">Local glossary</h3>
+            <div class="glossary-form">
+              <select id="glossary-entry-select" aria-label="Glossary entries"></select>
+              <input id="glossary-source-term" placeholder="Source term" />
+              <input id="glossary-target-term" placeholder="Target term" />
+              <button id="glossary-save" type="button">Add / save entry</button>
+              <button id="glossary-delete" type="button">Delete selected</button>
+              <button id="glossary-reset" type="button">Reset to sample glossary</button>
+            </div>
+          </section>
+          <section class="spelling-tools" aria-label="Optional English spelling suggestions">
+            <button id="spelling-suggest" type="button">Suggest English spelling</button>
+            <span id="spelling-output" class="field-note">Suggestions are optional and never edit your text.</span>
+          </section>
+        </details>
 
         <div class="action-row">
           <button id="translate-button" class="primary-button" type="button">Translate</button>

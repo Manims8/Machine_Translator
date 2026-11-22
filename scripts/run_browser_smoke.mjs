@@ -252,14 +252,20 @@ try {
   if (!refreshReady) throw new Error('The reloaded app did not initialize the offline test hook.')
   const offlineRefreshResult = await devtools.evaluate('window.__trilinguaRunOfflineRefreshTest()', true)
   process.stdout.write('Checking local validation and failure messages.\n')
+  process.stdout.write('Checking marker preservation in all six model directions.\n')
+  const markerPreservationTests = await devtools.evaluate('window.__trilinguaRunMarkerPreservationTests()', true)
+  process.stdout.write('Checking long-input token bounds with the actual source tokenizer.\n')
+  const longInputTokenizationTest = await devtools.evaluate('window.__trilinguaRunLongInputTokenizationTest()', true)
   const errorHandling = await devtools.evaluate('window.__trilinguaRunErrorHandlingChecks()', true)
 
   const output = {
-    project: 'TriLingua Stage 2',
+    project: 'TriLingua Stage 3',
     generatedAt: new Date().toISOString(),
     browser: versionInfo.Browser,
     offlineMethod: 'Headless browser external DNS blocked with host-resolver-rules; localhost Vite access preserved.',
     offlineRefreshTest: offlineRefreshResult,
+    markerPreservationTests,
+    longInputTokenizationTest,
     errorHandling,
     localAssetChecks: requiredAssetChecks,
     localRuntimeRequests: [...localRuntimeRequests],
@@ -269,6 +275,108 @@ try {
   }
   await mkdir(path.dirname(outputPath), { recursive: true })
   await writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`, 'utf8')
+  const baselinePath = path.join(root, 'evaluation', 'stage2_baseline_smoke_tests.json')
+  const componentPath = path.join(root, 'evaluation', 'nlp_component_tests.json')
+  const baseline = JSON.parse(await readFile(baselinePath, 'utf8'))
+  const componentTests = JSON.parse(await readFile(componentPath, 'utf8'))
+  const baselineByDirection = new Map((baseline.results ?? []).map((result) => [`${result.sourceLanguage}>${result.targetLanguage}`, result]))
+  const regressions = (smokeResult.results ?? []).map((result) => {
+    const baselineResult = baselineByDirection.get(`${result.sourceLanguage}>${result.targetLanguage}`)
+    return {
+      sourceLanguage: result.sourceLanguage,
+      targetLanguage: result.targetLanguage,
+      status: result.status,
+      baselineTranslation: baselineResult?.translation ?? null,
+      stage3Translation: result.translation,
+      baselineTranslationTimeMs: baselineResult?.translationTimeMs ?? null,
+      stage3TranslationTimeMs: result.translationTimeMs ?? null,
+      sourceTokenCount: result.sourceTokenCount ?? null,
+      chunkCount: result.chunkCount ?? null,
+      warnings: result.warnings ?? [],
+    }
+  })
+  const pipelineReport = {
+    project: 'TriLingua Stage 3 NLP pipeline evaluation',
+    generatedAt: output.generatedAt,
+    baseline: 'evaluation/stage2_baseline_smoke_tests.json',
+    browser: output.browser,
+    offlineMethod: output.offlineMethod,
+    sixDirectionRegressions: regressions,
+    markerPreservationTests,
+    longInputTokenizationTest,
+    offlineRefreshTest: offlineRefreshResult,
+    componentTests,
+    errorHandling,
+    localAssetChecks: requiredAssetChecks,
+    localRuntimeRequests: [...localRuntimeRequests],
+    externalOriginsRequested: [...externalRequests],
+    browserErrors,
+    passed: regressions.filter((item) => item.status === 'passed').length,
+    failed: regressions.filter((item) => item.status !== 'passed').length,
+    tests: [
+      ...componentTests.tests,
+      ...regressions.map((item) => ({
+        name: `Six-direction regression ${item.sourceLanguage} to ${item.targetLanguage}`,
+        input: (smokeResult.results ?? []).find((result) => result.sourceLanguage === item.sourceLanguage && result.targetLanguage === item.targetLanguage)?.input,
+        expected: 'Translation completes and contains the expected target script.',
+        actual: { translation: item.stage3Translation, sourceTokenCount: item.sourceTokenCount, chunkCount: item.chunkCount },
+        status: item.status,
+      })),
+      ...markerPreservationTests.checks.map((item) => ({
+        name: `Entity and glossary marker preservation ${item.sourceLanguage} to ${item.targetLanguage}`,
+        input: `${item.entityMarker} ${item.glossaryMarker}`,
+        expected: 'Both markers survive exactly once, otherwise protection stays disabled for that route.',
+        actual: { entityPreserved: item.entityPreserved, glossaryPreserved: item.glossaryPreserved, supported: item.preserved },
+        status: item.status,
+      })),
+      ...markerPreservationTests.entityTests.map((item) => ({
+        name: `Exact entity restoration ${item.sourceLanguage} to ${item.targetLanguage}`,
+        input: item.input,
+        expected: 'Every detected value is restored exactly once after actual model inference.',
+        actual: { entities: item.entities, restoredText: item.restoredText },
+        status: item.status,
+      })),
+      ...markerPreservationTests.glossaryTests.map((item) => ({
+        name: `Glossary restoration ${item.sourceLanguage} to ${item.targetLanguage}`,
+        input: item.sourceTerm,
+        expected: `Target term is restored exactly: ${item.targetTerm}`,
+        actual: { marker: item.marker, translation: item.translation, restoredText: item.restoredText },
+        status: item.status,
+      })),
+      ...markerPreservationTests.supportGateChecks.map((item) => ({
+        name: `Safe marker support gate ${item.sourceLanguage} to ${item.targetLanguage}`,
+        input: `${item.sourceLanguage}>${item.targetLanguage}`,
+        expected: 'Only features that passed generated-marker restoration are enabled.',
+        actual: { entityEnabled: item.actualEntitySupport, glossaryEnabled: item.actualGlossarySupport },
+        status: item.status,
+      })),
+      longInputTokenizationTest,
+    ],
+  }
+  pipelineReport.testSummary = {
+    components: { passed: componentTests.passed, failed: componentTests.failed },
+    sixDirectionRegression: { passed: regressions.filter((item) => item.status === 'passed').length, failed: regressions.filter((item) => item.status !== 'passed').length },
+    markerPreservationProbes: {
+      passed: markerPreservationTests.checks.filter((item) => item.status === 'passed').length,
+      failed: markerPreservationTests.checks.filter((item) => item.status !== 'passed').length,
+    },
+    entityRestoration: {
+      passed: markerPreservationTests.entityTests.filter((item) => item.status === 'passed').length,
+      failed: markerPreservationTests.entityTests.filter((item) => item.status !== 'passed').length,
+    },
+    glossaryRestoration: {
+      passed: markerPreservationTests.glossaryTests.filter((item) => item.status === 'passed').length,
+      failed: markerPreservationTests.glossaryTests.filter((item) => item.status !== 'passed').length,
+    },
+    safeFeatureGates: {
+      passed: markerPreservationTests.supportGateChecks.filter((item) => item.status === 'passed').length,
+      failed: markerPreservationTests.supportGateChecks.filter((item) => item.status !== 'passed').length,
+    },
+    longInputTokenizer: longInputTokenizationTest.status,
+    offlineRefresh: offlineRefreshResult.status,
+    errorHandling: { passed: errorHandling.passed, failed: errorHandling.failed },
+  }
+  await writeFile(path.join(root, 'evaluation', 'nlp_pipeline_tests.json'), `${JSON.stringify(pipelineReport, null, 2)}\n`, 'utf8')
   process.stdout.write(`\nSaved browser results to ${outputPath}\n`)
   process.stdout.write(`Six directions: ${output.passed ?? 0} passed, ${output.failed ?? 0} failed.\n`)
   process.stdout.write(`Offline refresh test: ${offlineRefreshResult.status}. External origins requested: ${externalRequests.size}.\n`)

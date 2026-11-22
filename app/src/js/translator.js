@@ -172,6 +172,10 @@ export function getModelLoadTimeMs() {
   return activeModel?.loadTimeMs ?? null
 }
 
+export function getModelMaxSourceTokens() {
+  return activeModel?.modelConfig?.max_source_positions ?? null
+}
+
 export async function unloadTranslationModel() {
   const previous = activeModel
   activeModel = null
@@ -403,6 +407,7 @@ export async function translateText(inputText, config, onProgress = () => {}) {
     return {
       translation,
       totalTokens: tokenCount,
+      sourceTokenCount: inputIds.length,
       totalTimeMs: performance.now() - startedAt,
     }
   } finally {
@@ -413,4 +418,16 @@ export async function translateText(inputText, config, onProgress = () => {}) {
     disposeOutput(presentOutputs)
     if (!completed) progress(onProgress, 'error', 'Translation failed', null)
   }
-}\n
+}
+
+/** Count actual model input IDs, including the two language tags. */
+export async function countSourceTokens(text, config) {
+  const input = preprocessText(text)
+  const model = await loadTranslationModel(config)
+  const modelText = config.sourceLanguage === 'eng_Latn' ? input : transliterate(input, config.sourceLanguage, 'hin_Deva')
+  const sourceTagId = await tokenizeLanguage(model.sourceTokenizer, config.sourceLanguage, 'Source')
+  const targetTagId = await tokenizeLanguage(model.sourceTokenizer, config.targetLanguage, 'Target')
+  const encoded = await model.sourceTokenizer(modelText.startsWith(' ') ? modelText : ` ${modelText}`)
+  const ids = Array.from(encoded.input_ids.data, Number)
+  return [sourceTagId, targetTagId, ...ids].length
+}

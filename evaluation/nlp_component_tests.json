@@ -1,0 +1,168 @@
+{
+  "suite": "Stage 3 NLP components",
+  "generatedAt": "2026-11-22T15:19:39.583Z",
+  "passed": 22,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "Unicode NFC",
+      "input": "e + combining acute",
+      "expected": "é",
+      "actual": "é",
+      "status": "passed"
+    },
+    {
+      "name": "Indic join controls preserved",
+      "input": "Tamil with ZWJ and Kannada with ZWNJ",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Whitespace and paragraphs",
+      "input": "spaces, tabs, repeated newlines",
+      "expected": "A B\n\nC",
+      "actual": "A B\n\nC",
+      "status": "passed"
+    },
+    {
+      "name": "Unsupported controls rejected",
+      "input": "\\u0001",
+      "expected": false,
+      "actual": false,
+      "status": "passed"
+    },
+    {
+      "name": "Tamil/Kannada unicode accepted",
+      "input": "Tamil and Kannada",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Same-language route rejected",
+      "input": "Tamil to Tamil",
+      "expected": false,
+      "actual": false,
+      "status": "passed"
+    },
+    {
+      "name": "Sentence grouping and information preservation en",
+      "input": "I am a robotics student. I study artificial intelligence. I want to build a translator.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Sentence grouping and information preservation ta",
+      "input": "நான் ஒரு ரோபோட்டிக்ஸ் மாணவன். நான் செயற்கை நுண்ணறிவு படிக்கிறேன்.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Sentence grouping and information preservation kn",
+      "input": "ನಾನು ರೊಬೋಟಿಕ್ಸ್ ವಿದ್ಯಾರ್ಥಿ. ನಾನು ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆಯನ್ನು ಕಲಿಯುತ್ತಿದ್ದೇನೆ.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Abbreviation, decimal and URL preserved",
+      "input": "Dr. Smith saw 3.14. Visit https://example.com/a.b. Next sentence!",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Entity type recognition",
+      "input": "Email student@example.com https://example.com on 25/11/2026 at 10:30 AM; call 9876543210; code TRI2026A001; value 3.14; pay $20.00.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Entity roundtrip and duplicate detection",
+      "input": "Email student@example.com https://example.com on 25/11/2026 at 10:30 AM; call 9876543210; code TRI2026A001; value 3.14; pay $20.00.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Modified marker rejected safely",
+      "input": "bad marker",
+      "expected": false,
+      "actual": false,
+      "status": "passed"
+    },
+    {
+      "name": "Glossary add and retrieve",
+      "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Glossary update",
+      "input": "செயற்கை நுண்ணறிவு கூடம்",
+      "expected": "செயற்கை நுண்ணறிவு கூடம்",
+      "actual": "செயற்கை நுண்ணறிவு கூடம்",
+      "status": "passed"
+    },
+    {
+      "name": "Longest overlapping phrase match",
+      "input": "Artificial Intelligence Lab before Artificial Intelligence",
+      "expected": [
+        "Artificial Intelligence Lab",
+        "Artificial Intelligence"
+      ],
+      "actual": [
+        "Artificial Intelligence Lab",
+        "Artificial Intelligence"
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "Glossary delete",
+      "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Default glossary covers all pairs",
+      "input": 30,
+      "expected": 30,
+      "actual": 30,
+      "status": "passed"
+    },
+    {
+      "name": "Levenshtein artifical/artificial",
+      "input": "artifical → artificial",
+      "expected": 1,
+      "actual": 1,
+      "status": "passed"
+    },
+    {
+      "name": "Levenshtein kitten/sitting",
+      "input": "kitten → sitting",
+      "expected": 3,
+      "actual": 3,
+      "status": "passed"
+    },
+    {
+      "name": "Levenshtein robot/robots",
+      "input": "robot → robots",
+      "expected": 1,
+      "actual": 1,
+      "status": "passed"
+    },
+    {
+      "name": "Optional correction suggestion",
+      "input": "artifical",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    }
+  ]
+}

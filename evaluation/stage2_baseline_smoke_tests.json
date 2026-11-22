@@ -1,0 +1,159 @@
+{
+  "project": "TriLingua Stage 2",
+  "generatedAt": "2026-11-22T14:25:58.905Z",
+  "browser": "Chrome/158.0.8127.36",
+  "offlineMethod": "Headless browser external DNS blocked with host-resolver-rules; localhost Vite access preserved.",
+  "offlineRefreshTest": {
+    "sourceLanguage": "eng_Latn",
+    "targetLanguage": "tam_Taml",
+    "input": "How are you today?",
+    "translation": "இன்று எப்படி இருக்கிறீர்கள்?",
+    "modelUsed": "en-indic-200m",
+    "modelLoadTimeMs": 7108.699999988079,
+    "translationTimeMs": 300.5,
+    "status": "passed"
+  },
+  "errorHandling": {
+    "checks": [
+      {
+        "name": "empty input",
+        "status": "passed",
+        "error": "Enter text to translate."
+      },
+      {
+        "name": "long input",
+        "status": "passed",
+        "error": "Text is too long (5001 characters). Keep it under 5000 characters."
+      },
+      {
+        "name": "same language route",
+        "status": "passed",
+        "error": "Source and target languages must be different."
+      },
+      {
+        "name": "invalid model path",
+        "status": "passed",
+        "error": "Could not load English → Indic (200M): Local model configuration at /missing-model-folder/config.json returned an HTML page instead of JSON; the file is missing or the path is incorrect."
+      },
+      {
+        "name": "missing ONNX sidecar",
+        "status": "passed",
+        "error": "Could not load English → Indic (200M): Local external ONNX weight file missing-encoder-weights.onnx.data at /indictrans2/en-indic-200m-fp32/missing-encoder-weights.onnx.data returned an HTML page; the file is missing or the path is incorrect."
+      },
+      {
+        "name": "model not loaded then lazy-load",
+        "status": "passed",
+        "unloadedBeforeRetry": true,
+        "retryStatus": "passed"
+      }
+    ],
+    "passed": 6,
+    "failed": 0
+  },
+  "localAssetChecks": [
+    {
+      "url": "/indictrans2/en-indic-200m-fp32/encoder_model.onnx",
+      "status": 200,
+      "contentLength": 237174
+    },
+    {
+      "url": "/indictrans2/en-indic-200m-fp32/encoder_model.onnx.data",
+      "status": 200,
+      "contentLength": 293703680
+    },
+    {
+      "url": "/indictrans2/en-indic-200m-fp32/decoder_shared.onnx.data",
+      "status": 200,
+      "contentLength": 805691392
+    },
+    {
+      "url": "/indictrans2/en-indic-200m-fp32/tokenizer_src.json",
+      "status": 200,
+      "contentLength": 3906621
+    }
+  ],
+  "localRuntimeRequests": [
+    "/@fs/D:/python/Machine_Translator/node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.wasm",
+    "/@fs/D:/python/Machine_Translator/node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.mjs"
+  ],
+  "externalOriginsRequested": [],
+  "browserErrors": [],
+  "testType": "Preliminary model smoke tests",
+  "executionBackend": "ONNX Runtime Web WASM, one thread",
+  "results": [
+    {
+      "sourceLanguage": "eng_Latn",
+      "targetLanguage": "tam_Taml",
+      "input": "How are you today?",
+      "translation": "இன்று எப்படி இருக்கிறீர்கள்?",
+      "modelUsed": "en-indic-200m",
+      "modelLoadTimeMs": 6782.199999988079,
+      "translationTimeMs": 363.29999999701977,
+      "totalTokens": 6,
+      "targetScriptCheck": "passed",
+      "status": "passed"
+    },
+    {
+      "sourceLanguage": "eng_Latn",
+      "targetLanguage": "kan_Knda",
+      "input": "I am going to college.",
+      "translation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "modelUsed": "en-indic-200m",
+      "modelLoadTimeMs": 6782.199999988079,
+      "translationTimeMs": 343.1000000089407,
+      "totalTokens": 8,
+      "targetScriptCheck": "passed",
+      "status": "passed"
+    },
+    {
+      "sourceLanguage": "tam_Taml",
+      "targetLanguage": "eng_Latn",
+      "input": "நான் இன்று கல்லூரிக்குச் செல்கிறேன்.",
+      "translation": "I'm going to college today.",
+      "modelUsed": "indic-en-200m",
+      "modelLoadTimeMs": 5570.70000000298,
+      "translationTimeMs": 423.80000001192093,
+      "totalTokens": 9,
+      "targetScriptCheck": "passed",
+      "status": "passed"
+    },
+    {
+      "sourceLanguage": "kan_Knda",
+      "targetLanguage": "eng_Latn",
+      "input": "ನಾನು ಇಂದು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "translation": "I am going to college today.",
+      "modelUsed": "indic-en-200m",
+      "modelLoadTimeMs": 5570.70000000298,
+      "translationTimeMs": 330.20000000298023,
+      "totalTokens": 8,
+      "targetScriptCheck": "passed",
+      "status": "passed"
+    },
+    {
+      "sourceLanguage": "tam_Taml",
+      "targetLanguage": "kan_Knda",
+      "input": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்?",
+      "translation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
+      "modelUsed": "indic-indic-320m",
+      "modelLoadTimeMs": 7515,
+      "translationTimeMs": 413.29999999701977,
+      "totalTokens": 7,
+      "targetScriptCheck": "passed",
+      "status": "passed"
+    },
+    {
+      "sourceLanguage": "kan_Knda",
+      "targetLanguage": "tam_Taml",
+      "input": "ನಮಸ್ಕಾರ, ನೀವು ಹೇಗಿದ್ದೀರಿ?",
+      "translation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
+      "modelUsed": "indic-indic-320m",
+      "modelLoadTimeMs": 7515,
+      "translationTimeMs": 530.5,
+      "totalTokens": 8,
+      "targetScriptCheck": "passed",
+      "status": "passed"
+    }
+  ],
+  "passed": 6,
+  "failed": 0
+}

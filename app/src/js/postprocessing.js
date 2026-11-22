@@ -47,6 +47,8 @@ export function postprocessText(text, targetLanguage) {
   const internalLanguage = targetLanguage === 'eng_Latn' ? 'eng_Latn' : 'hin_Deva'
   return transliterate(text, internalLanguage, targetLanguage)
     .normalize('NFC')
-    .replace(/[\s\u00a0]+/gu, ' ')
+    .replace(/[\t\f\v \u00a0]+/gu, ' ')
+    .replace(/ *\r?\n */gu, '\n')
+    .replace(/\n{3,}/gu, '\n\n')
     .trim()
-}\n
+}

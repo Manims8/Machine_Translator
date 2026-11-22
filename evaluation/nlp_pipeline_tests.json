@@ -1,0 +1,1093 @@
+{
+  "project": "TriLingua Stage 3 NLP pipeline evaluation",
+  "generatedAt": "2026-11-22T15:20:10.266Z",
+  "baseline": "evaluation/stage2_baseline_smoke_tests.json",
+  "browser": "Chrome/158.0.8127.36",
+  "offlineMethod": "Headless browser external DNS blocked with host-resolver-rules; localhost Vite access preserved.",
+  "sixDirectionRegressions": [
+    {
+      "sourceLanguage": "eng_Latn",
+      "targetLanguage": "tam_Taml",
+      "status": "passed",
+      "baselineTranslation": "இன்று எப்படி இருக்கிறீர்கள்?",
+      "stage3Translation": "இன்று எப்படி இருக்கிறீர்கள்?",
+      "baselineTranslationTimeMs": 363.29999999701977,
+      "stage3TranslationTimeMs": 369.80000001192093,
+      "sourceTokenCount": 8,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ]
+    },
+    {
+      "sourceLanguage": "eng_Latn",
+      "targetLanguage": "kan_Knda",
+      "status": "passed",
+      "baselineTranslation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "stage3Translation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "baselineTranslationTimeMs": 343.1000000089407,
+      "stage3TranslationTimeMs": 346.6000000089407,
+      "sourceTokenCount": 9,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ]
+    },
+    {
+      "sourceLanguage": "tam_Taml",
+      "targetLanguage": "eng_Latn",
+      "status": "passed",
+      "baselineTranslation": "I'm going to college today.",
+      "stage3Translation": "I'm going to college today.",
+      "baselineTranslationTimeMs": 423.80000001192093,
+      "stage3TranslationTimeMs": 458.8999999910593,
+      "sourceTokenCount": 10,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ]
+    },
+    {
+      "sourceLanguage": "kan_Knda",
+      "targetLanguage": "eng_Latn",
+      "status": "passed",
+      "baselineTranslation": "I am going to college today.",
+      "stage3Translation": "I am going to college today.",
+      "baselineTranslationTimeMs": 330.20000000298023,
+      "stage3TranslationTimeMs": 460,
+      "sourceTokenCount": 11,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ]
+    },
+    {
+      "sourceLanguage": "tam_Taml",
+      "targetLanguage": "kan_Knda",
+      "status": "passed",
+      "baselineTranslation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
+      "stage3Translation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
+      "baselineTranslationTimeMs": 413.29999999701977,
+      "stage3TranslationTimeMs": 376.70000000298023,
+      "sourceTokenCount": 11,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ]
+    },
+    {
+      "sourceLanguage": "kan_Knda",
+      "targetLanguage": "tam_Taml",
+      "status": "passed",
+      "baselineTranslation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
+      "stage3Translation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
+      "baselineTranslationTimeMs": 530.5,
+      "stage3TranslationTimeMs": 402,
+      "sourceTokenCount": 10,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ]
+    }
+  ],
+  "markerPreservationTests": {
+    "checks": [
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "tam_Taml",
+        "modelFamily": "en-indic-200m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q0QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q0QXZ",
+        "entityPreserved": true,
+        "glossaryPreserved": true,
+        "translation": "ZXQENTITYQSTAGE3Q0QXZ மற்றும் ZXQGLOSSARYQSTAGE3Q0QXZ ஐ சரியாக வைத்திருங்கள்.",
+        "preserved": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "kan_Knda",
+        "modelFamily": "en-indic-200m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q1QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q1QXZ",
+        "entityPreserved": false,
+        "glossaryPreserved": true,
+        "translation": "ZXQENTIQSTAGE3Q1QXZ ಮತ್ತು ZXQGLOSSARYQSTAGE3Q1QXZ ಅನ್ನು ನಿಖರವಾಗಿ ಇರಿಸಿ.",
+        "preserved": false,
+        "status": "failed"
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "eng_Latn",
+        "modelFamily": "indic-en-200m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q2QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q2QXZ",
+        "entityPreserved": true,
+        "glossaryPreserved": false,
+        "translation": "Keep ZXQENTITYQSTAGE3Q2QXZ and ZXQGLOSARYQSTAGE3Q2QXZ exactly.",
+        "preserved": false,
+        "status": "failed"
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "eng_Latn",
+        "modelFamily": "indic-en-200m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q3QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q3QXZ",
+        "entityPreserved": true,
+        "glossaryPreserved": false,
+        "translation": "Keep ZXQENTITYQSTAGE3Q3QXZ and ZXQGLOSARYQSTAGE3Q3QXZ exactly.",
+        "preserved": false,
+        "status": "failed"
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "kan_Knda",
+        "modelFamily": "indic-indic-320m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q4QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q4QXZ",
+        "entityPreserved": false,
+        "glossaryPreserved": false,
+        "translation": "ಕೀಪ್ ZXQE3Q4QXZ ಮತ್ತು ZXQGLSE3Q4QXZ ನಿಖರವಾಗಿ.",
+        "preserved": false,
+        "status": "failed"
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "tam_Taml",
+        "modelFamily": "indic-indic-320m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q5QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q5QXZ",
+        "entityPreserved": false,
+        "glossaryPreserved": false,
+        "translation": "கீப் ZXQTYQSTAGE3Q5QXZ மற்றும் ZXQGlossaryQSTAGE3Q5QXZ துல்லியமாக.",
+        "preserved": false,
+        "status": "failed"
+      }
+    ],
+    "supportedDirections": [],
+    "entitySupportedDirections": [
+      "kan_Knda>eng_Latn"
+    ],
+    "glossarySupportedDirections": [],
+    "entityTests": [
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "tam_Taml",
+        "modelFamily": "en-indic-200m",
+        "input": "Visit https://example.com/path and email student@example.com on 25/11/2026.",
+        "entities": [
+          {
+            "type": "url",
+            "value": "https://example.com/path",
+            "marker": "ZXQENTITYQoh7qjkzfQ0QXZ"
+          },
+          {
+            "type": "email",
+            "value": "student@example.com",
+            "marker": "ZXQENTITYQoh7qjkzfQ1QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQoh7qjkzfQ2QXZ"
+          }
+        ],
+        "translation": "ZXQENTIQOH7qjkzfQ0QXZ ஐப் பார்வையிட்டு, ZXQENTIQOH7qjkzfQ1QXZ க்கு ZXQENTIQOH7qjkzfQ2QXZ இல் மின்னஞ்சல் அனுப்பவும்.",
+        "restoredText": "ZXQENTIQOH7qjkzfQ0QXZ ஐப் பார்வையிட்டு, ZXQENTIQOH7qjkzfQ1QXZ க்கு ZXQENTIQOH7qjkzfQ2QXZ இல் மின்னஞ்சல் அனுப்பவும்.",
+        "exactRestoration": false,
+        "status": "failed",
+        "warning": "Protected entity markers changed or disappeared; original values were not substituted."
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "eng_Latn",
+        "modelFamily": "indic-en-200m",
+        "input": "TRI2026A001 25/11/2026",
+        "entities": [
+          {
+            "type": "identifier",
+            "value": "TRI2026A001",
+            "marker": "ZXQENTITYQrmmwfp8qQ0QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQrmmwfp8qQ1QXZ"
+          }
+        ],
+        "translation": "ZXQENTITYQrmmwfp8qQ0QXZ",
+        "restoredText": "ZXQENTITYQrmmwfp8qQ0QXZ",
+        "exactRestoration": false,
+        "status": "failed",
+        "warning": "Protected entity markers changed or disappeared; original values were not substituted."
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "eng_Latn",
+        "modelFamily": "indic-en-200m",
+        "input": "TRI2026A001 25/11/2026",
+        "entities": [
+          {
+            "type": "identifier",
+            "value": "TRI2026A001",
+            "marker": "ZXQENTITYQbf0jqz4mQ0QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQbf0jqz4mQ1QXZ"
+          }
+        ],
+        "translation": "ZXQENTITYQbf0jqz4mQ0QXZ ZXQENTITYQbf0jqz4mQ1QXZ",
+        "restoredText": "TRI2026A001 25/11/2026",
+        "exactRestoration": true,
+        "status": "passed",
+        "warning": null
+      }
+    ],
+    "glossaryTests": [
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "tam_Taml",
+        "modelFamily": "en-indic-200m",
+        "sourceTerm": "Robot",
+        "targetTerm": "ரோபோ",
+        "marker": "ZXQGLOSSARYQ0QXZ",
+        "translation": "ZXQGLOSARYQ0QXZ",
+        "restoredText": "ZXQGLOSARYQ0QXZ",
+        "exactTargetPresent": false,
+        "status": "failed",
+        "warning": "Glossary marker validation failed; no terminology was substituted."
+      },
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "kan_Knda",
+        "modelFamily": "en-indic-200m",
+        "sourceTerm": "Robot",
+        "targetTerm": "ರೋಬೋಟ್",
+        "marker": "ZXQGLOSSARYQ0QXZ",
+        "translation": "ZXQGLOSARYQ0QXZ",
+        "restoredText": "ZXQGLOSARYQ0QXZ",
+        "exactTargetPresent": false,
+        "status": "failed",
+        "warning": "Glossary marker validation failed; no terminology was substituted."
+      }
+    ],
+    "supportGateChecks": [
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "tam_Taml",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "kan_Knda",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "eng_Latn",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "eng_Latn",
+        "expectedEntitySupport": true,
+        "actualEntitySupport": true,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "kan_Knda",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "tam_Taml",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      }
+    ]
+  },
+  "longInputTokenizationTest": {
+    "name": "Long input is chunked under actual tokenizer limit",
+    "input": "[80 short English sentences; actual input retained in local test only]",
+    "expected": "More than one chunk, each at most 256 model source tokens",
+    "actual": {
+      "chunkCount": 4,
+      "maxSourceTokens": 256,
+      "sourceTokenCounts": [
+        256,
+        256,
+        256,
+        124
+      ]
+    },
+    "status": "passed"
+  },
+  "offlineRefreshTest": {
+    "sourceLanguage": "eng_Latn",
+    "targetLanguage": "tam_Taml",
+    "input": "How are you today?",
+    "translation": "இன்று எப்படி இருக்கிறீர்கள்?",
+    "modelUsed": "en-indic-200m",
+    "modelLoadTimeMs": 6775.300000011921,
+    "translationTimeMs": 352.1000000089407,
+    "status": "passed"
+  },
+  "componentTests": {
+    "suite": "Stage 3 NLP components",
+    "generatedAt": "2026-11-22T15:19:39.583Z",
+    "passed": 22,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Unicode NFC",
+        "input": "e + combining acute",
+        "expected": "é",
+        "actual": "é",
+        "status": "passed"
+      },
+      {
+        "name": "Indic join controls preserved",
+        "input": "Tamil with ZWJ and Kannada with ZWNJ",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Whitespace and paragraphs",
+        "input": "spaces, tabs, repeated newlines",
+        "expected": "A B\n\nC",
+        "actual": "A B\n\nC",
+        "status": "passed"
+      },
+      {
+        "name": "Unsupported controls rejected",
+        "input": "\\u0001",
+        "expected": false,
+        "actual": false,
+        "status": "passed"
+      },
+      {
+        "name": "Tamil/Kannada unicode accepted",
+        "input": "Tamil and Kannada",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Same-language route rejected",
+        "input": "Tamil to Tamil",
+        "expected": false,
+        "actual": false,
+        "status": "passed"
+      },
+      {
+        "name": "Sentence grouping and information preservation en",
+        "input": "I am a robotics student. I study artificial intelligence. I want to build a translator.",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Sentence grouping and information preservation ta",
+        "input": "நான் ஒரு ரோபோட்டிக்ஸ் மாணவன். நான் செயற்கை நுண்ணறிவு படிக்கிறேன்.",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Sentence grouping and information preservation kn",
+        "input": "ನಾನು ರೊಬೋಟಿಕ್ಸ್ ವಿದ್ಯಾರ್ಥಿ. ನಾನು ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆಯನ್ನು ಕಲಿಯುತ್ತಿದ್ದೇನೆ.",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Abbreviation, decimal and URL preserved",
+        "input": "Dr. Smith saw 3.14. Visit https://example.com/a.b. Next sentence!",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Entity type recognition",
+        "input": "Email student@example.com https://example.com on 25/11/2026 at 10:30 AM; call 9876543210; code TRI2026A001; value 3.14; pay $20.00.",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Entity roundtrip and duplicate detection",
+        "input": "Email student@example.com https://example.com on 25/11/2026 at 10:30 AM; call 9876543210; code TRI2026A001; value 3.14; pay $20.00.",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Modified marker rejected safely",
+        "input": "bad marker",
+        "expected": false,
+        "actual": false,
+        "status": "passed"
+      },
+      {
+        "name": "Glossary add and retrieve",
+        "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Glossary update",
+        "input": "செயற்கை நுண்ணறிவு கூடம்",
+        "expected": "செயற்கை நுண்ணறிவு கூடம்",
+        "actual": "செயற்கை நுண்ணறிவு கூடம்",
+        "status": "passed"
+      },
+      {
+        "name": "Longest overlapping phrase match",
+        "input": "Artificial Intelligence Lab before Artificial Intelligence",
+        "expected": [
+          "Artificial Intelligence Lab",
+          "Artificial Intelligence"
+        ],
+        "actual": [
+          "Artificial Intelligence Lab",
+          "Artificial Intelligence"
+        ],
+        "status": "passed"
+      },
+      {
+        "name": "Glossary delete",
+        "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      },
+      {
+        "name": "Default glossary covers all pairs",
+        "input": 30,
+        "expected": 30,
+        "actual": 30,
+        "status": "passed"
+      },
+      {
+        "name": "Levenshtein artifical/artificial",
+        "input": "artifical → artificial",
+        "expected": 1,
+        "actual": 1,
+        "status": "passed"
+      },
+      {
+        "name": "Levenshtein kitten/sitting",
+        "input": "kitten → sitting",
+        "expected": 3,
+        "actual": 3,
+        "status": "passed"
+      },
+      {
+        "name": "Levenshtein robot/robots",
+        "input": "robot → robots",
+        "expected": 1,
+        "actual": 1,
+        "status": "passed"
+      },
+      {
+        "name": "Optional correction suggestion",
+        "input": "artifical",
+        "expected": true,
+        "actual": true,
+        "status": "passed"
+      }
+    ]
+  },
+  "errorHandling": {
+    "checks": [
+      {
+        "name": "empty input",
+        "status": "passed",
+        "error": "Enter text to translate."
+      },
+      {
+        "name": "long input",
+        "status": "passed",
+        "error": "Input exceeds 20000 characters."
+      },
+      {
+        "name": "same language route",
+        "status": "passed",
+        "error": "Source and target languages must be different."
+      },
+      {
+        "name": "invalid model path",
+        "status": "passed",
+        "error": "Could not load English → Indic (200M): Local model configuration at /missing-model-folder/config.json returned an HTML page instead of JSON; the file is missing or the path is incorrect."
+      },
+      {
+        "name": "missing ONNX sidecar",
+        "status": "passed",
+        "error": "Could not load English → Indic (200M): Local external ONNX weight file missing-encoder-weights.onnx.data at /indictrans2/en-indic-200m-fp32/missing-encoder-weights.onnx.data returned an HTML page; the file is missing or the path is incorrect."
+      },
+      {
+        "name": "model not loaded then lazy-load",
+        "status": "passed",
+        "unloadedBeforeRetry": true,
+        "retryStatus": "passed"
+      }
+    ],
+    "passed": 6,
+    "failed": 0
+  },
+  "localAssetChecks": [
+    {
+      "url": "/indictrans2/en-indic-200m-fp32/encoder_model.onnx",
+      "status": 200,
+      "contentLength": 237174
+    },
+    {
+      "url": "/indictrans2/en-indic-200m-fp32/encoder_model.onnx.data",
+      "status": 200,
+      "contentLength": 293703680
+    },
+    {
+      "url": "/indictrans2/en-indic-200m-fp32/decoder_shared.onnx.data",
+      "status": 200,
+      "contentLength": 805691392
+    },
+    {
+      "url": "/indictrans2/en-indic-200m-fp32/tokenizer_src.json",
+      "status": 200,
+      "contentLength": 3906621
+    }
+  ],
+  "localRuntimeRequests": [
+    "/@fs/D:/python/Machine_Translator/node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.wasm",
+    "/@fs/D:/python/Machine_Translator/node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.mjs"
+  ],
+  "externalOriginsRequested": [],
+  "browserErrors": [],
+  "passed": 6,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "Unicode NFC",
+      "input": "e + combining acute",
+      "expected": "é",
+      "actual": "é",
+      "status": "passed"
+    },
+    {
+      "name": "Indic join controls preserved",
+      "input": "Tamil with ZWJ and Kannada with ZWNJ",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Whitespace and paragraphs",
+      "input": "spaces, tabs, repeated newlines",
+      "expected": "A B\n\nC",
+      "actual": "A B\n\nC",
+      "status": "passed"
+    },
+    {
+      "name": "Unsupported controls rejected",
+      "input": "\\u0001",
+      "expected": false,
+      "actual": false,
+      "status": "passed"
+    },
+    {
+      "name": "Tamil/Kannada unicode accepted",
+      "input": "Tamil and Kannada",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Same-language route rejected",
+      "input": "Tamil to Tamil",
+      "expected": false,
+      "actual": false,
+      "status": "passed"
+    },
+    {
+      "name": "Sentence grouping and information preservation en",
+      "input": "I am a robotics student. I study artificial intelligence. I want to build a translator.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Sentence grouping and information preservation ta",
+      "input": "நான் ஒரு ரோபோட்டிக்ஸ் மாணவன். நான் செயற்கை நுண்ணறிவு படிக்கிறேன்.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Sentence grouping and information preservation kn",
+      "input": "ನಾನು ರೊಬೋಟಿಕ್ಸ್ ವಿದ್ಯಾರ್ಥಿ. ನಾನು ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆಯನ್ನು ಕಲಿಯುತ್ತಿದ್ದೇನೆ.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Abbreviation, decimal and URL preserved",
+      "input": "Dr. Smith saw 3.14. Visit https://example.com/a.b. Next sentence!",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Entity type recognition",
+      "input": "Email student@example.com https://example.com on 25/11/2026 at 10:30 AM; call 9876543210; code TRI2026A001; value 3.14; pay $20.00.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Entity roundtrip and duplicate detection",
+      "input": "Email student@example.com https://example.com on 25/11/2026 at 10:30 AM; call 9876543210; code TRI2026A001; value 3.14; pay $20.00.",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Modified marker rejected safely",
+      "input": "bad marker",
+      "expected": false,
+      "actual": false,
+      "status": "passed"
+    },
+    {
+      "name": "Glossary add and retrieve",
+      "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Glossary update",
+      "input": "செயற்கை நுண்ணறிவு கூடம்",
+      "expected": "செயற்கை நுண்ணறிவு கூடம்",
+      "actual": "செயற்கை நுண்ணறிவு கூடம்",
+      "status": "passed"
+    },
+    {
+      "name": "Longest overlapping phrase match",
+      "input": "Artificial Intelligence Lab before Artificial Intelligence",
+      "expected": [
+        "Artificial Intelligence Lab",
+        "Artificial Intelligence"
+      ],
+      "actual": [
+        "Artificial Intelligence Lab",
+        "Artificial Intelligence"
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "Glossary delete",
+      "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Default glossary covers all pairs",
+      "input": 30,
+      "expected": 30,
+      "actual": 30,
+      "status": "passed"
+    },
+    {
+      "name": "Levenshtein artifical/artificial",
+      "input": "artifical → artificial",
+      "expected": 1,
+      "actual": 1,
+      "status": "passed"
+    },
+    {
+      "name": "Levenshtein kitten/sitting",
+      "input": "kitten → sitting",
+      "expected": 3,
+      "actual": 3,
+      "status": "passed"
+    },
+    {
+      "name": "Levenshtein robot/robots",
+      "input": "robot → robots",
+      "expected": 1,
+      "actual": 1,
+      "status": "passed"
+    },
+    {
+      "name": "Optional correction suggestion",
+      "input": "artifical",
+      "expected": true,
+      "actual": true,
+      "status": "passed"
+    },
+    {
+      "name": "Six-direction regression eng_Latn to tam_Taml",
+      "input": "How are you today?",
+      "expected": "Translation completes and contains the expected target script.",
+      "actual": {
+        "translation": "இன்று எப்படி இருக்கிறீர்கள்?",
+        "sourceTokenCount": 8,
+        "chunkCount": 1
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Six-direction regression eng_Latn to kan_Knda",
+      "input": "I am going to college.",
+      "expected": "Translation completes and contains the expected target script.",
+      "actual": {
+        "translation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+        "sourceTokenCount": 9,
+        "chunkCount": 1
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Six-direction regression tam_Taml to eng_Latn",
+      "input": "நான் இன்று கல்லூரிக்குச் செல்கிறேன்.",
+      "expected": "Translation completes and contains the expected target script.",
+      "actual": {
+        "translation": "I'm going to college today.",
+        "sourceTokenCount": 10,
+        "chunkCount": 1
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Six-direction regression kan_Knda to eng_Latn",
+      "input": "ನಾನು ಇಂದು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "expected": "Translation completes and contains the expected target script.",
+      "actual": {
+        "translation": "I am going to college today.",
+        "sourceTokenCount": 11,
+        "chunkCount": 1
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Six-direction regression tam_Taml to kan_Knda",
+      "input": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்?",
+      "expected": "Translation completes and contains the expected target script.",
+      "actual": {
+        "translation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
+        "sourceTokenCount": 11,
+        "chunkCount": 1
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Six-direction regression kan_Knda to tam_Taml",
+      "input": "ನಮಸ್ಕಾರ, ನೀವು ಹೇಗಿದ್ದೀರಿ?",
+      "expected": "Translation completes and contains the expected target script.",
+      "actual": {
+        "translation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
+        "sourceTokenCount": 10,
+        "chunkCount": 1
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Entity and glossary marker preservation eng_Latn to tam_Taml",
+      "input": "ZXQENTITYQSTAGE3Q0QXZ ZXQGLOSSARYQSTAGE3Q0QXZ",
+      "expected": "Both markers survive exactly once, otherwise protection stays disabled for that route.",
+      "actual": {
+        "entityPreserved": true,
+        "glossaryPreserved": true,
+        "supported": true
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Entity and glossary marker preservation eng_Latn to kan_Knda",
+      "input": "ZXQENTITYQSTAGE3Q1QXZ ZXQGLOSSARYQSTAGE3Q1QXZ",
+      "expected": "Both markers survive exactly once, otherwise protection stays disabled for that route.",
+      "actual": {
+        "entityPreserved": false,
+        "glossaryPreserved": true,
+        "supported": false
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Entity and glossary marker preservation tam_Taml to eng_Latn",
+      "input": "ZXQENTITYQSTAGE3Q2QXZ ZXQGLOSSARYQSTAGE3Q2QXZ",
+      "expected": "Both markers survive exactly once, otherwise protection stays disabled for that route.",
+      "actual": {
+        "entityPreserved": true,
+        "glossaryPreserved": false,
+        "supported": false
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Entity and glossary marker preservation kan_Knda to eng_Latn",
+      "input": "ZXQENTITYQSTAGE3Q3QXZ ZXQGLOSSARYQSTAGE3Q3QXZ",
+      "expected": "Both markers survive exactly once, otherwise protection stays disabled for that route.",
+      "actual": {
+        "entityPreserved": true,
+        "glossaryPreserved": false,
+        "supported": false
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Entity and glossary marker preservation tam_Taml to kan_Knda",
+      "input": "ZXQENTITYQSTAGE3Q4QXZ ZXQGLOSSARYQSTAGE3Q4QXZ",
+      "expected": "Both markers survive exactly once, otherwise protection stays disabled for that route.",
+      "actual": {
+        "entityPreserved": false,
+        "glossaryPreserved": false,
+        "supported": false
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Entity and glossary marker preservation kan_Knda to tam_Taml",
+      "input": "ZXQENTITYQSTAGE3Q5QXZ ZXQGLOSSARYQSTAGE3Q5QXZ",
+      "expected": "Both markers survive exactly once, otherwise protection stays disabled for that route.",
+      "actual": {
+        "entityPreserved": false,
+        "glossaryPreserved": false,
+        "supported": false
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Exact entity restoration eng_Latn to tam_Taml",
+      "input": "Visit https://example.com/path and email student@example.com on 25/11/2026.",
+      "expected": "Every detected value is restored exactly once after actual model inference.",
+      "actual": {
+        "entities": [
+          {
+            "type": "url",
+            "value": "https://example.com/path",
+            "marker": "ZXQENTITYQoh7qjkzfQ0QXZ"
+          },
+          {
+            "type": "email",
+            "value": "student@example.com",
+            "marker": "ZXQENTITYQoh7qjkzfQ1QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQoh7qjkzfQ2QXZ"
+          }
+        ],
+        "restoredText": "ZXQENTIQOH7qjkzfQ0QXZ ஐப் பார்வையிட்டு, ZXQENTIQOH7qjkzfQ1QXZ க்கு ZXQENTIQOH7qjkzfQ2QXZ இல் மின்னஞ்சல் அனுப்பவும்."
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Exact entity restoration tam_Taml to eng_Latn",
+      "input": "TRI2026A001 25/11/2026",
+      "expected": "Every detected value is restored exactly once after actual model inference.",
+      "actual": {
+        "entities": [
+          {
+            "type": "identifier",
+            "value": "TRI2026A001",
+            "marker": "ZXQENTITYQrmmwfp8qQ0QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQrmmwfp8qQ1QXZ"
+          }
+        ],
+        "restoredText": "ZXQENTITYQrmmwfp8qQ0QXZ"
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Exact entity restoration kan_Knda to eng_Latn",
+      "input": "TRI2026A001 25/11/2026",
+      "expected": "Every detected value is restored exactly once after actual model inference.",
+      "actual": {
+        "entities": [
+          {
+            "type": "identifier",
+            "value": "TRI2026A001",
+            "marker": "ZXQENTITYQbf0jqz4mQ0QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQbf0jqz4mQ1QXZ"
+          }
+        ],
+        "restoredText": "TRI2026A001 25/11/2026"
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Glossary restoration eng_Latn to tam_Taml",
+      "input": "Robot",
+      "expected": "Target term is restored exactly: ரோபோ",
+      "actual": {
+        "marker": "ZXQGLOSSARYQ0QXZ",
+        "translation": "ZXQGLOSARYQ0QXZ",
+        "restoredText": "ZXQGLOSARYQ0QXZ"
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Glossary restoration eng_Latn to kan_Knda",
+      "input": "Robot",
+      "expected": "Target term is restored exactly: ರೋಬೋಟ್",
+      "actual": {
+        "marker": "ZXQGLOSSARYQ0QXZ",
+        "translation": "ZXQGLOSARYQ0QXZ",
+        "restoredText": "ZXQGLOSARYQ0QXZ"
+      },
+      "status": "failed"
+    },
+    {
+      "name": "Safe marker support gate eng_Latn to tam_Taml",
+      "input": "eng_Latn>tam_Taml",
+      "expected": "Only features that passed generated-marker restoration are enabled.",
+      "actual": {
+        "entityEnabled": false,
+        "glossaryEnabled": false
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Safe marker support gate eng_Latn to kan_Knda",
+      "input": "eng_Latn>kan_Knda",
+      "expected": "Only features that passed generated-marker restoration are enabled.",
+      "actual": {
+        "entityEnabled": false,
+        "glossaryEnabled": false
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Safe marker support gate tam_Taml to eng_Latn",
+      "input": "tam_Taml>eng_Latn",
+      "expected": "Only features that passed generated-marker restoration are enabled.",
+      "actual": {
+        "entityEnabled": false,
+        "glossaryEnabled": false
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Safe marker support gate kan_Knda to eng_Latn",
+      "input": "kan_Knda>eng_Latn",
+      "expected": "Only features that passed generated-marker restoration are enabled.",
+      "actual": {
+        "entityEnabled": true,
+        "glossaryEnabled": false
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Safe marker support gate tam_Taml to kan_Knda",
+      "input": "tam_Taml>kan_Knda",
+      "expected": "Only features that passed generated-marker restoration are enabled.",
+      "actual": {
+        "entityEnabled": false,
+        "glossaryEnabled": false
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Safe marker support gate kan_Knda to tam_Taml",
+      "input": "kan_Knda>tam_Taml",
+      "expected": "Only features that passed generated-marker restoration are enabled.",
+      "actual": {
+        "entityEnabled": false,
+        "glossaryEnabled": false
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Long input is chunked under actual tokenizer limit",
+      "input": "[80 short English sentences; actual input retained in local test only]",
+      "expected": "More than one chunk, each at most 256 model source tokens",
+      "actual": {
+        "chunkCount": 4,
+        "maxSourceTokens": 256,
+        "sourceTokenCounts": [
+          256,
+          256,
+          256,
+          124
+        ]
+      },
+      "status": "passed"
+    }
+  ],
+  "testSummary": {
+    "components": {
+      "passed": 22,
+      "failed": 0
+    },
+    "sixDirectionRegression": {
+      "passed": 6,
+      "failed": 0
+    },
+    "markerPreservationProbes": {
+      "passed": 1,
+      "failed": 5
+    },
+    "entityRestoration": {
+      "passed": 1,
+      "failed": 2
+    },
+    "glossaryRestoration": {
+      "passed": 0,
+      "failed": 2
+    },
+    "safeFeatureGates": {
+      "passed": 6,
+      "failed": 0
+    },
+    "longInputTokenizer": "passed",
+    "offlineRefresh": "passed",
+    "errorHandling": {
+      "passed": 6,
+      "failed": 0
+    }
+  }
+}

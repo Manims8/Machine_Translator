@@ -1,6 +1,6 @@
 {
-  "project": "TriLingua Stage 2",
-  "generatedAt": "2026-11-22T14:25:58.905Z",
+  "project": "TriLingua Stage 3",
+  "generatedAt": "2026-11-22T15:20:10.266Z",
   "browser": "Chrome/158.0.8127.36",
   "offlineMethod": "Headless browser external DNS blocked with host-resolver-rules; localhost Vite access preserved.",
   "offlineRefreshTest": {
@@ -9,8 +9,271 @@
     "input": "How are you today?",
     "translation": "இன்று எப்படி இருக்கிறீர்கள்?",
     "modelUsed": "en-indic-200m",
-    "modelLoadTimeMs": 7108.699999988079,
-    "translationTimeMs": 300.5,
+    "modelLoadTimeMs": 6775.300000011921,
+    "translationTimeMs": 352.1000000089407,
+    "status": "passed"
+  },
+  "markerPreservationTests": {
+    "checks": [
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "tam_Taml",
+        "modelFamily": "en-indic-200m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q0QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q0QXZ",
+        "entityPreserved": true,
+        "glossaryPreserved": true,
+        "translation": "ZXQENTITYQSTAGE3Q0QXZ மற்றும் ZXQGLOSSARYQSTAGE3Q0QXZ ஐ சரியாக வைத்திருங்கள்.",
+        "preserved": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "kan_Knda",
+        "modelFamily": "en-indic-200m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q1QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q1QXZ",
+        "entityPreserved": false,
+        "glossaryPreserved": true,
+        "translation": "ZXQENTIQSTAGE3Q1QXZ ಮತ್ತು ZXQGLOSSARYQSTAGE3Q1QXZ ಅನ್ನು ನಿಖರವಾಗಿ ಇರಿಸಿ.",
+        "preserved": false,
+        "status": "failed"
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "eng_Latn",
+        "modelFamily": "indic-en-200m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q2QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q2QXZ",
+        "entityPreserved": true,
+        "glossaryPreserved": false,
+        "translation": "Keep ZXQENTITYQSTAGE3Q2QXZ and ZXQGLOSARYQSTAGE3Q2QXZ exactly.",
+        "preserved": false,
+        "status": "failed"
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "eng_Latn",
+        "modelFamily": "indic-en-200m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q3QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q3QXZ",
+        "entityPreserved": true,
+        "glossaryPreserved": false,
+        "translation": "Keep ZXQENTITYQSTAGE3Q3QXZ and ZXQGLOSARYQSTAGE3Q3QXZ exactly.",
+        "preserved": false,
+        "status": "failed"
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "kan_Knda",
+        "modelFamily": "indic-indic-320m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q4QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q4QXZ",
+        "entityPreserved": false,
+        "glossaryPreserved": false,
+        "translation": "ಕೀಪ್ ZXQE3Q4QXZ ಮತ್ತು ZXQGLSE3Q4QXZ ನಿಖರವಾಗಿ.",
+        "preserved": false,
+        "status": "failed"
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "tam_Taml",
+        "modelFamily": "indic-indic-320m",
+        "entityMarker": "ZXQENTITYQSTAGE3Q5QXZ",
+        "glossaryMarker": "ZXQGLOSSARYQSTAGE3Q5QXZ",
+        "entityPreserved": false,
+        "glossaryPreserved": false,
+        "translation": "கீப் ZXQTYQSTAGE3Q5QXZ மற்றும் ZXQGlossaryQSTAGE3Q5QXZ துல்லியமாக.",
+        "preserved": false,
+        "status": "failed"
+      }
+    ],
+    "supportedDirections": [],
+    "entitySupportedDirections": [
+      "kan_Knda>eng_Latn"
+    ],
+    "glossarySupportedDirections": [],
+    "entityTests": [
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "tam_Taml",
+        "modelFamily": "en-indic-200m",
+        "input": "Visit https://example.com/path and email student@example.com on 25/11/2026.",
+        "entities": [
+          {
+            "type": "url",
+            "value": "https://example.com/path",
+            "marker": "ZXQENTITYQoh7qjkzfQ0QXZ"
+          },
+          {
+            "type": "email",
+            "value": "student@example.com",
+            "marker": "ZXQENTITYQoh7qjkzfQ1QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQoh7qjkzfQ2QXZ"
+          }
+        ],
+        "translation": "ZXQENTIQOH7qjkzfQ0QXZ ஐப் பார்வையிட்டு, ZXQENTIQOH7qjkzfQ1QXZ க்கு ZXQENTIQOH7qjkzfQ2QXZ இல் மின்னஞ்சல் அனுப்பவும்.",
+        "restoredText": "ZXQENTIQOH7qjkzfQ0QXZ ஐப் பார்வையிட்டு, ZXQENTIQOH7qjkzfQ1QXZ க்கு ZXQENTIQOH7qjkzfQ2QXZ இல் மின்னஞ்சல் அனுப்பவும்.",
+        "exactRestoration": false,
+        "status": "failed",
+        "warning": "Protected entity markers changed or disappeared; original values were not substituted."
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "eng_Latn",
+        "modelFamily": "indic-en-200m",
+        "input": "TRI2026A001 25/11/2026",
+        "entities": [
+          {
+            "type": "identifier",
+            "value": "TRI2026A001",
+            "marker": "ZXQENTITYQrmmwfp8qQ0QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQrmmwfp8qQ1QXZ"
+          }
+        ],
+        "translation": "ZXQENTITYQrmmwfp8qQ0QXZ",
+        "restoredText": "ZXQENTITYQrmmwfp8qQ0QXZ",
+        "exactRestoration": false,
+        "status": "failed",
+        "warning": "Protected entity markers changed or disappeared; original values were not substituted."
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "eng_Latn",
+        "modelFamily": "indic-en-200m",
+        "input": "TRI2026A001 25/11/2026",
+        "entities": [
+          {
+            "type": "identifier",
+            "value": "TRI2026A001",
+            "marker": "ZXQENTITYQbf0jqz4mQ0QXZ"
+          },
+          {
+            "type": "date",
+            "value": "25/11/2026",
+            "marker": "ZXQENTITYQbf0jqz4mQ1QXZ"
+          }
+        ],
+        "translation": "ZXQENTITYQbf0jqz4mQ0QXZ ZXQENTITYQbf0jqz4mQ1QXZ",
+        "restoredText": "TRI2026A001 25/11/2026",
+        "exactRestoration": true,
+        "status": "passed",
+        "warning": null
+      }
+    ],
+    "glossaryTests": [
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "tam_Taml",
+        "modelFamily": "en-indic-200m",
+        "sourceTerm": "Robot",
+        "targetTerm": "ரோபோ",
+        "marker": "ZXQGLOSSARYQ0QXZ",
+        "translation": "ZXQGLOSARYQ0QXZ",
+        "restoredText": "ZXQGLOSARYQ0QXZ",
+        "exactTargetPresent": false,
+        "status": "failed",
+        "warning": "Glossary marker validation failed; no terminology was substituted."
+      },
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "kan_Knda",
+        "modelFamily": "en-indic-200m",
+        "sourceTerm": "Robot",
+        "targetTerm": "ರೋಬೋಟ್",
+        "marker": "ZXQGLOSSARYQ0QXZ",
+        "translation": "ZXQGLOSARYQ0QXZ",
+        "restoredText": "ZXQGLOSARYQ0QXZ",
+        "exactTargetPresent": false,
+        "status": "failed",
+        "warning": "Glossary marker validation failed; no terminology was substituted."
+      }
+    ],
+    "supportGateChecks": [
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "tam_Taml",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "eng_Latn",
+        "targetLanguage": "kan_Knda",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "eng_Latn",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "eng_Latn",
+        "expectedEntitySupport": true,
+        "actualEntitySupport": true,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "tam_Taml",
+        "targetLanguage": "kan_Knda",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      },
+      {
+        "sourceLanguage": "kan_Knda",
+        "targetLanguage": "tam_Taml",
+        "expectedEntitySupport": false,
+        "actualEntitySupport": false,
+        "expectedGlossarySupport": false,
+        "actualGlossarySupport": false,
+        "matches": true,
+        "status": "passed"
+      }
+    ]
+  },
+  "longInputTokenizationTest": {
+    "name": "Long input is chunked under actual tokenizer limit",
+    "input": "[80 short English sentences; actual input retained in local test only]",
+    "expected": "More than one chunk, each at most 256 model source tokens",
+    "actual": {
+      "chunkCount": 4,
+      "maxSourceTokens": 256,
+      "sourceTokenCounts": [
+        256,
+        256,
+        256,
+        124
+      ]
+    },
     "status": "passed"
   },
   "errorHandling": {
@@ -23,7 +286,7 @@
       {
         "name": "long input",
         "status": "passed",
-        "error": "Text is too long (5001 characters). Keep it under 5000 characters."
+        "error": "Input exceeds 20000 characters."
       },
       {
         "name": "same language route",
@@ -87,9 +350,13 @@
       "input": "How are you today?",
       "translation": "இன்று எப்படி இருக்கிறீர்கள்?",
       "modelUsed": "en-indic-200m",
-      "modelLoadTimeMs": 6782.199999988079,
-      "translationTimeMs": 363.29999999701977,
-      "totalTokens": 6,
+      "modelLoadTimeMs": 6905.4000000059605,
+      "translationTimeMs": 369.80000001192093,
+      "sourceTokenCount": 8,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
       "targetScriptCheck": "passed",
       "status": "passed"
     },
@@ -99,9 +366,13 @@
       "input": "I am going to college.",
       "translation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
       "modelUsed": "en-indic-200m",
-      "modelLoadTimeMs": 6782.199999988079,
-      "translationTimeMs": 343.1000000089407,
-      "totalTokens": 8,
+      "modelLoadTimeMs": 6905.4000000059605,
+      "translationTimeMs": 346.6000000089407,
+      "sourceTokenCount": 9,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
       "targetScriptCheck": "passed",
       "status": "passed"
     },
@@ -111,9 +382,13 @@
       "input": "நான் இன்று கல்லூரிக்குச் செல்கிறேன்.",
       "translation": "I'm going to college today.",
       "modelUsed": "indic-en-200m",
-      "modelLoadTimeMs": 5570.70000000298,
-      "translationTimeMs": 423.80000001192093,
-      "totalTokens": 9,
+      "modelLoadTimeMs": 4933.9000000059605,
+      "translationTimeMs": 458.8999999910593,
+      "sourceTokenCount": 10,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
       "targetScriptCheck": "passed",
       "status": "passed"
     },
@@ -123,9 +398,13 @@
       "input": "ನಾನು ಇಂದು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
       "translation": "I am going to college today.",
       "modelUsed": "indic-en-200m",
-      "modelLoadTimeMs": 5570.70000000298,
-      "translationTimeMs": 330.20000000298023,
-      "totalTokens": 8,
+      "modelLoadTimeMs": 4933.9000000059605,
+      "translationTimeMs": 460,
+      "sourceTokenCount": 11,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
       "targetScriptCheck": "passed",
       "status": "passed"
     },
@@ -135,9 +414,13 @@
       "input": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்?",
       "translation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
       "modelUsed": "indic-indic-320m",
-      "modelLoadTimeMs": 7515,
-      "translationTimeMs": 413.29999999701977,
-      "totalTokens": 7,
+      "modelLoadTimeMs": 7182.70000000298,
+      "translationTimeMs": 376.70000000298023,
+      "sourceTokenCount": 11,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
       "targetScriptCheck": "passed",
       "status": "passed"
     },
@@ -147,9 +430,13 @@
       "input": "ನಮಸ್ಕಾರ, ನೀವು ಹೇಗಿದ್ದೀರಿ?",
       "translation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
       "modelUsed": "indic-indic-320m",
-      "modelLoadTimeMs": 7515,
-      "translationTimeMs": 530.5,
-      "totalTokens": 8,
+      "modelLoadTimeMs": 7182.70000000298,
+      "translationTimeMs": 402,
+      "sourceTokenCount": 10,
+      "chunkCount": 1,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
       "targetScriptCheck": "passed",
       "status": "passed"
     }

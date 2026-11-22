@@ -8,6 +8,8 @@
   .text-field textarea, .translation-output { min-height: 150px; }
   .action-row { flex-wrap: wrap; }
   .load-time { flex-basis: 100%; margin: 2px 0 0; }
+  .glossary-form { grid-template-columns: 1fr 1fr; }
+  .diagnostics-grid { grid-template-columns: 1fr; gap: 3px; }
 }
 
 @media (max-width: 390px) {

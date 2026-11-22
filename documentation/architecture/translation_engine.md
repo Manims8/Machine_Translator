@@ -2,12 +2,13 @@
 
 ## Module responsibilities
 
-- `app/src/js/app.js` owns the simple development interface, user input validation, progress display, unload action, and browser smoke-test hooks.
+- `app/src/js/app.js` owns the simple development interface, progress display, unload action, and browser smoke-test hooks. `nlpPipeline.js` orchestrates NLP validation and translation stages.
 - `app/src/js/language.js` maps language names to the IndicTrans2 tags.
 - `app/src/js/modelRouter.js` is the only place that maps language pairs to model families and local model file paths.
-- `app/src/js/preprocessing.js` applies Unicode NFC normalization, trims the input, collapses repeated whitespace, rejects empty input, and enforces a 5,000-character UI limit.
+- `app/src/js/preprocessing.js` applies Unicode NFC normalization, preserves paragraph breaks and Indic join controls, rejects invalid controls and empty input, and enforces a 20,000-character input limit.
+- `app/src/js/sentenceSegmenter.js` groups sentences and uses the selected model's actual tokenizer counts to keep chunks within the model configuration's source limit.
 - `app/src/js/translator.js` loads local tokenizers and ONNX files, owns one active model family, tokenizes the source, runs encoder/decoder inference, and measures loading and translation time.
-- `app/src/js/postprocessing.js` converts Indic scripts to and from the Devanagari-based internal representation and normalizes decoded output.
+- `app/src/js/postprocessing.js` converts Indic scripts to and from the Devanagari-based internal representation and normalizes decoded output while preserving paragraph breaks.
 
 ## Model routing
 

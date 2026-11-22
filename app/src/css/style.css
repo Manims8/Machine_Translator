@@ -55,3 +55,14 @@ progress::-moz-progress-bar { border-radius: 99px; background: var(--teal); }
 .error-message { margin: 14px 0 0; padding: 11px 13px; border-radius: 9px; background: #fff0ed; color: #a23d2d; font-size: .85rem; line-height: 1.5; }
 .privacy-note { margin: 18px 2px 0; color: #7d9093; font-size: .78rem; text-align: center; }
 .smoke-output { margin-top: 18px; padding: 12px; overflow: auto; border-radius: 8px; background: #112d30; color: #d7eeee; }
+.nlp-details { margin-top: 18px; padding: 14px; border: 1px solid var(--line); border-radius: 11px; background: #fcfdfd; }
+.nlp-details summary { color: #34575b; cursor: pointer; font-size: .9rem; font-weight: 700; }
+.diagnostics-grid { display: grid; grid-template-columns: minmax(130px, .8fr) 2fr; gap: 7px 14px; margin: 14px 0; font-size: .78rem; }
+.diagnostics-grid dt { color: var(--muted); }
+.diagnostics-grid dd { margin: 0; overflow-wrap: anywhere; color: var(--ink); white-space: pre-wrap; }
+.glossary-tools, .spelling-tools { margin-top: 15px; padding-top: 13px; border-top: 1px solid var(--line); }
+.glossary-tools h3 { margin: 0 0 10px; font-size: .85rem; }
+.glossary-form { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 7px; }
+.glossary-form select, .glossary-form input, .glossary-form button, .spelling-tools button { min-width: 0; padding: 8px 9px; border: 1px solid var(--line); border-radius: 7px; background: #fff; color: var(--ink); font: inherit; font-size: .75rem; }
+.glossary-form button, .spelling-tools button { cursor: pointer; font-weight: 650; }
+.spelling-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
