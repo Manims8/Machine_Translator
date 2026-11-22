@@ -10,4 +10,8 @@ for s,t,sk,tk in pairs:
     (root/'references'/f'{name}.txt').write_text(''.join(r[tk]+'\n' for r in rows),encoding='utf-8')
     with (root/'references'/f'{name}.jsonl').open('w',encoding='utf-8') as f:
         for r in rows:f.write(json.dumps({'id':r['id'],'source':r[sk],'reference':r[tk],'source_language':s,'target_language':t},ensure_ascii=False)+'\n')
+    pilot=rows[:25]
+    (root/'references'/f'{name}-pilot.txt').write_text(''.join(r[tk]+'\n' for r in pilot),encoding='utf-8')
+    with (root/'references'/f'{name}-pilot.jsonl').open('w',encoding='utf-8') as f:
+        for r in pilot:f.write(json.dumps({'id':r['id'],'source':r[sk],'reference':r[tk],'source_language':s,'target_language':t},ensure_ascii=False)+'\n')
 Path('evaluation/dataset/native_custom_eval_template.csv').write_text('id,english,tamil,kannada,reviewer,verified,notes\n',encoding='utf-8')

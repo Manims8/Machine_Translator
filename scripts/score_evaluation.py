@@ -2,6 +2,7 @@
 import argparse,csv,json,statistics,sys
 from pathlib import Path
 import sacrebleu
+from sacrebleu.metrics import BLEU, CHRF
 ROOT=Path(__file__).resolve().parents[1]/'evaluation'
 PAIRS=[('eng_Latn','tam_Taml','english','tamil'),('eng_Latn','kan_Knda','english','kannada'),('tam_Taml','eng_Latn','tamil','english'),('kan_Knda','eng_Latn','kannada','english'),('tam_Taml','kan_Knda','tamil','kannada'),('kan_Knda','tam_Taml','kannada','tamil')]
 def read_jsonl(path):
@@ -41,7 +42,7 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--mode',choices=['pilot','full'],default='full');ap.add_argument('--expected-count',type=int);ap.add_argument('--validate-only',action='store_true');ap.add_argument('--predictions-dir',type=Path,default=ROOT/'predictions');ap.add_argument('--references-dir',type=Path,default=ROOT/'references');a=ap.parse_args();expected=a.expected_count or (25 if a.mode=='pilot' else 1012)
     failures=[];results=[]
     for src,tgt,_,_ in PAIRS:
-        name=f'{src}-{tgt}';rp=a.references_dir/f'{name}.jsonl';suffix='-pilot' if a.mode=='pilot' else '';pp=a.predictions_dir/f'{name}{suffix}.jsonl'
+        name=f'{src}-{tgt}';suffix='-pilot' if a.mode=='pilot' else '';rp=a.references_dir/f'{name}{suffix}.jsonl';pp=a.predictions_dir/f'{name}{suffix}.jsonl'
         if not rp.exists() or not pp.exists():failures.append({'direction':name,'errors':[f'missing file: {x}' for x in (rp,pp) if not x.exists()]});continue
         refs,re=read_jsonl(rp);preds,pe=read_jsonl(pp);src,tgt,sk,tk=next(x for x in PAIRS if f'{x[0]}-{x[1]}'==name)
         errs=re+pe+validate(refs,preds,src,tgt,sk,tk,expected)
@@ -53,11 +54,30 @@ def main():
             from indic_evaluation_preprocessing import process
             hyp=[process(x,tgt) for x in hyp];ref=[process(x,tgt) for x in ref];tokenize='none'
         else:tokenize='13a'
-        bleu=sacrebleu.corpus_bleu(hyp,[ref],tokenize=tokenize,smooth_method='exp');chrf=sacrebleu.corpus_chrf(hyp,[ref],word_order=2)
+        bleu_metric=BLEU(tokenize=tokenize,smooth_method='exp');bleu=bleu_metric.corpus_score(hyp,[ref]);chrf_metric=CHRF(word_order=2);chrf=chrf_metric.corpus_score(hyp,[ref])
         times=[float(predmap[x['id']]['translation_time_ms']) for x in refs]
-        results.append({'direction':name,'status':'complete','sentences':expected,'bleu':bleu.score,'bleu_signature':str(bleu.get_signature()),'precisions':bleu.precisions,'brevity_penalty':bleu.bp,'chrf++':chrf.score,'chrf_signature':str(chrf.get_signature()),'time_mean_ms':statistics.mean(times),'time_median_ms':statistics.median(times),'sacrebleu':sacrebleu.__version__,'indicnlp':'0.92','preprocessing':'IndicNormalizerFactory + trivial_tokenize; English 13a'})
-    out=ROOT/'results';out.mkdir(exist_ok=True);(out/'failed_predictions.json').write_text(json.dumps(failures,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        results.append({'direction':name,'status':'complete','sentences':expected,'successful':sum(p.get('status') == 'success' for p in preds),'failed':sum(p.get('status') != 'success' for p in preds),'bleu':bleu.score,'bleu_signature':str(bleu_metric.get_signature()),'precisions':bleu.precisions,'brevity_penalty':bleu.bp,'chrf++':chrf.score,'chrf_signature':str(chrf_metric.get_signature()),'time_mean_ms':statistics.mean(times),'time_median_ms':statistics.median(times),'sacrebleu':sacrebleu.__version__,'indicnlp':'0.92','preprocessing':'IndicNormalizerFactory + trivial_tokenize; English 13a','examples':[{'id':x['id'],'source':x['source'],'reference':x['reference'],'prediction':predmap[x['id']]['prediction']} for x in refs[:3]]})
+    out=ROOT/'results';out.mkdir(exist_ok=True)
+    failure_name='failed_predictions.json' if a.mode=='pilot' else 'failed_predictions.json'
+    (out/failure_name).write_text(json.dumps(failures,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     if failures:print(json.dumps({'valid':False,'failed_directions':len(failures)}));sys.exit(2)
     if a.validate_only:print(json.dumps({'valid':True,'directions':len(results),'expected_each':expected}));return
-    (out/'final_results.json').write_text(json.dumps({'results':results},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    if a.mode == 'pilot':
+        macro_bleu=statistics.mean(x['bleu'] for x in results)
+        macro_chrf=statistics.mean(x['chrf++'] for x in results)
+        payload={'mode':'pilot','sentences_per_direction':expected,'total_sentences':expected*len(results),'total_successful':sum(x['successful'] for x in results),'total_failed':sum(x['failed'] for x in results),'macro_bleu':macro_bleu,'macro_chrf++':macro_chrf,'sacrebleu':sacrebleu.__version__,'results':results}
+        (out/'pilot_results.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        with (out/'direction_comparison.csv').open('w',newline='',encoding='utf-8') as f:
+            writer=csv.writer(f);writer.writerow(['direction','sentences','successful','failed','bleu','chrf++'])
+            writer.writerows([x['direction'],x['sentences'],x['successful'],x['failed'],x['bleu'],x['chrf++']] for x in results)
+        labels={'eng_Latn-tam_Taml':'English → Tamil','eng_Latn-kan_Knda':'English → Kannada','tam_Taml-eng_Latn':'Tamil → English','kan_Knda-eng_Latn':'Kannada → English','tam_Taml-kan_Knda':'Tamil → Kannada','kan_Knda-tam_Taml':'Kannada → Tamil'}
+        lines=['# TriLingua Stage 5.3 Pilot Evaluation','',f'Local ONNX pilot: {expected} sentences per direction, {expected * len(results)} total translation attempts.','', '| Translation direction | Sentences | Successful | Failed | BLEU | chrF++ |','|---|---:|---:|---:|---:|---:|']
+        lines += [f"| {labels[x['direction']]} | {x['sentences']} | {x['successful']} | {x['failed']} | {x['bleu']:.4f} | {x['chrf++']:.4f} |" for x in results]
+        lines += ['',f"**Macro-average BLEU:** {macro_bleu:.4f}",f"**Macro-average chrF++:** {macro_chrf:.4f}",'',f"SacreBLEU: {sacrebleu.__version__}. English uses `13a`; Tamil/Kannada use Indic NLP `IndicNormalizerFactory` plus `trivial_tokenize`, applied to candidates and references. This 25-sentence pilot checks pipeline integrity and is not sufficient to establish final model performance.",'']
+        for x in results:
+            lines += [f"## {labels[x['direction']]} examples",'']
+            for i,e in enumerate(x['examples'],1): lines += [f"### Example {i} (ID {e['id']})",f"- Source: {e['source']}",f"- Reference: {e['reference']}",f"- Prediction: {e['prediction']}",'']
+        (out/'evaluation_summary.md').write_text('\n'.join(lines),encoding='utf-8')
+    else:
+        (out/'final_results.json').write_text(json.dumps({'results':results},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 if __name__=='__main__':main()
