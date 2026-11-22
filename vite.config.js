@@ -1,4 +1,8 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const projectRoot = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
   // Serve the app from app/ and expose the already-downloaded models as public
@@ -17,5 +21,11 @@ export default defineConfig({
     outDir: '../dist',
     emptyOutDir: true,
     copyPublicDir: false,
+    rollupOptions: {
+      input: {
+        main: resolve(projectRoot, 'app/index.html'),
+        evaluation: resolve(projectRoot, 'app/evaluation.html'),
+      },
+    },
   },
 })

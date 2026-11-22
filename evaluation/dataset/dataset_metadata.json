@@ -1,0 +1,16 @@
+{
+  "dataset": "FLORES-200",
+  "repository": "facebook/flores",
+  "configuration": "all",
+  "split": "devtest",
+  "language_codes": [
+    "eng_Latn",
+    "tam_Taml",
+    "kan_Knda"
+  ],
+  "download_date": "2026-11-22",
+  "license": "CC-BY-SA 4.0 (verify current dataset card)",
+  "examples": 1012,
+  "sha256": "58e16fd4e46e087f4385ff5d0097044800dd50097f84d609a381b7f16be576a0",
+  "source_url": "https://huggingface.co/datasets/facebook/flores"
+}

@@ -1,6 +1,6 @@
 {
   "project": "TriLingua Stage 3 NLP pipeline evaluation",
-  "generatedAt": "2026-11-22T15:47:23.165Z",
+  "generatedAt": "2026-11-22T18:39:08.697Z",
   "baseline": "evaluation/stage2_baseline_smoke_tests.json",
   "browser": "Chrome/158.0.8127.36",
   "offlineMethod": "Headless browser external DNS blocked with host-resolver-rules; localhost Vite access preserved.",
@@ -12,7 +12,7 @@
       "baselineTranslation": "இன்று எப்படி இருக்கிறீர்கள்?",
       "stage3Translation": "இன்று எப்படி இருக்கிறீர்கள்?",
       "baselineTranslationTimeMs": 363.29999999701977,
-      "stage3TranslationTimeMs": 398.59999999403954,
+      "stage3TranslationTimeMs": 355.39999997615814,
       "sourceTokenCount": 8,
       "chunkCount": 1,
       "warnings": [
@@ -26,7 +26,7 @@
       "baselineTranslation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
       "stage3Translation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
       "baselineTranslationTimeMs": 343.1000000089407,
-      "stage3TranslationTimeMs": 409.19999998807907,
+      "stage3TranslationTimeMs": 450.59999999403954,
       "sourceTokenCount": 9,
       "chunkCount": 1,
       "warnings": [
@@ -40,7 +40,7 @@
       "baselineTranslation": "I'm going to college today.",
       "stage3Translation": "I'm going to college today.",
       "baselineTranslationTimeMs": 423.80000001192093,
-      "stage3TranslationTimeMs": 450,
+      "stage3TranslationTimeMs": 370,
       "sourceTokenCount": 10,
       "chunkCount": 1,
       "warnings": [
@@ -54,7 +54,7 @@
       "baselineTranslation": "I am going to college today.",
       "stage3Translation": "I am going to college today.",
       "baselineTranslationTimeMs": 330.20000000298023,
-      "stage3TranslationTimeMs": 432.80000001192093,
+      "stage3TranslationTimeMs": 380.09999999403954,
       "sourceTokenCount": 11,
       "chunkCount": 1,
       "warnings": [
@@ -68,7 +68,7 @@
       "baselineTranslation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
       "stage3Translation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
       "baselineTranslationTimeMs": 413.29999999701977,
-      "stage3TranslationTimeMs": 841.5,
+      "stage3TranslationTimeMs": 391,
       "sourceTokenCount": 11,
       "chunkCount": 1,
       "warnings": [
@@ -82,7 +82,7 @@
       "baselineTranslation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
       "stage3Translation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
       "baselineTranslationTimeMs": 530.5,
-      "stage3TranslationTimeMs": 756.7000000029802,
+      "stage3TranslationTimeMs": 502.59999999403954,
       "sourceTokenCount": 10,
       "chunkCount": 1,
       "warnings": [
@@ -117,10 +117,10 @@
     "glossaryApplied": false,
     "glossaryReferenceCount": 5,
     "appliedGlossaryTerms": [],
-    "preprocessingTimeMs": 0.9000000059604645,
-    "translationTimeMs": 498.90000000596046,
-    "postprocessingTimeMs": 0.09999999403953552,
-    "modelLoadTimeMs": 19247.59999999404,
+    "preprocessingTimeMs": 0.5,
+    "translationTimeMs": 313.60000002384186,
+    "postprocessingTimeMs": 0,
+    "modelLoadTimeMs": 7309.899999976158,
     "warnings": [
       "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
     ],

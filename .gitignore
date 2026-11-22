@@ -1,10 +1,27 @@
 .venv/
 node_modules/
 dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 models/indictrans2/*
 !models/indictrans2/model_manifest.json
+resources/indic_nlp_resources/
 __pycache__/
 *.pyc
 .env
+.env.*
+!.env.example
 .cache/
 .vscode/
+*.log
+playwright-report/
+test-results/
+browser-profile/
+
+# Local FLORES benchmark data
+evaluation/dataset/flores200_devtest_parallel.jsonl
+evaluation/predictions/
+evaluation/results/*
+!evaluation/results/.gitkeep
+evaluation/stage4_ui_verification.json
