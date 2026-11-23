@@ -1,6 +1,6 @@
 {
   "project": "TriLingua Stage 3 NLP pipeline evaluation",
-  "generatedAt": "2026-11-22T18:39:08.697Z",
+  "generatedAt": "2026-11-23T15:31:33.500Z",
   "baseline": "evaluation/stage2_baseline_smoke_tests.json",
   "browser": "Chrome/158.0.8127.36",
   "offlineMethod": "Headless browser external DNS blocked with host-resolver-rules; localhost Vite access preserved.",
@@ -12,9 +12,11 @@
       "baselineTranslation": "இன்று எப்படி இருக்கிறீர்கள்?",
       "stage3Translation": "இன்று எப்படி இருக்கிறீர்கள்?",
       "baselineTranslationTimeMs": 363.29999999701977,
-      "stage3TranslationTimeMs": 355.39999997615814,
+      "stage3TranslationTimeMs": 635,
       "sourceTokenCount": 8,
       "chunkCount": 1,
+      "uiRepaintDelayMs": 0,
+      "uiRepaintBeforeInferenceStarted": true,
       "warnings": [
         "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
       ]
@@ -26,9 +28,11 @@
       "baselineTranslation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
       "stage3Translation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
       "baselineTranslationTimeMs": 343.1000000089407,
-      "stage3TranslationTimeMs": 450.59999999403954,
+      "stage3TranslationTimeMs": 662.5999999940395,
       "sourceTokenCount": 9,
       "chunkCount": 1,
+      "uiRepaintDelayMs": 0.30000001192092896,
+      "uiRepaintBeforeInferenceStarted": true,
       "warnings": [
         "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
       ]
@@ -38,11 +42,13 @@
       "targetLanguage": "eng_Latn",
       "status": "passed",
       "baselineTranslation": "I'm going to college today.",
-      "stage3Translation": "I'm going to college today.",
+      "stage3Translation": "I am going to college today.",
       "baselineTranslationTimeMs": 423.80000001192093,
-      "stage3TranslationTimeMs": 370,
+      "stage3TranslationTimeMs": 750.4000000059605,
       "sourceTokenCount": 10,
       "chunkCount": 1,
+      "uiRepaintDelayMs": 42.30000001192093,
+      "uiRepaintBeforeInferenceStarted": true,
       "warnings": [
         "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
       ]
@@ -52,11 +58,13 @@
       "targetLanguage": "eng_Latn",
       "status": "passed",
       "baselineTranslation": "I am going to college today.",
-      "stage3Translation": "I am going to college today.",
+      "stage3Translation": "I'm going to college today.",
       "baselineTranslationTimeMs": 330.20000000298023,
-      "stage3TranslationTimeMs": 380.09999999403954,
+      "stage3TranslationTimeMs": 681,
       "sourceTokenCount": 11,
       "chunkCount": 1,
+      "uiRepaintDelayMs": 0.4000000059604645,
+      "uiRepaintBeforeInferenceStarted": true,
       "warnings": [
         "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
       ]
@@ -68,9 +76,11 @@
       "baselineTranslation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
       "stage3Translation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
       "baselineTranslationTimeMs": 413.29999999701977,
-      "stage3TranslationTimeMs": 391,
+      "stage3TranslationTimeMs": 785.2000000178814,
       "sourceTokenCount": 11,
       "chunkCount": 1,
+      "uiRepaintDelayMs": 5.0999999940395355,
+      "uiRepaintBeforeInferenceStarted": true,
       "warnings": [
         "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
       ]
@@ -82,9 +92,11 @@
       "baselineTranslation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
       "stage3Translation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
       "baselineTranslationTimeMs": 530.5,
-      "stage3TranslationTimeMs": 502.59999999403954,
+      "stage3TranslationTimeMs": 709.4000000059605,
       "sourceTokenCount": 10,
       "chunkCount": 1,
+      "uiRepaintDelayMs": 0.4000000059604645,
+      "uiRepaintBeforeInferenceStarted": true,
       "warnings": [
         "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
       ]
@@ -117,18 +129,20 @@
     "glossaryApplied": false,
     "glossaryReferenceCount": 5,
     "appliedGlossaryTerms": [],
-    "preprocessingTimeMs": 0.5,
-    "translationTimeMs": 313.60000002384186,
-    "postprocessingTimeMs": 0,
-    "modelLoadTimeMs": 7309.899999976158,
+    "preprocessingTimeMs": 1.4000000059604645,
+    "translationTimeMs": 640.3999999761581,
+    "postprocessingTimeMs": 0.10000002384185791,
+    "modelLoadTimeMs": 9878.90000000596,
     "warnings": [
       "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
     ],
-    "status": "passed"
+    "status": "passed",
+    "uiRepaintDelayMs": 0.30000001192092896,
+    "uiRepaintBeforeInferenceStarted": true
   },
   "componentTests": {
     "suite": "Stage 3 NLP components",
-    "generatedAt": "2026-11-22T15:19:39.583Z",
+    "generatedAt": "2026-11-23T15:30:44.901Z",
     "passed": 22,
     "failed": 0,
     "tests": [
@@ -225,7 +239,7 @@
       },
       {
         "name": "Glossary add and retrieve",
-        "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+        "input": "user-7b0bdafe-7ca0-457c-8a2c-7908ad836f2b",
         "expected": true,
         "actual": true,
         "status": "passed"
@@ -252,7 +266,7 @@
       },
       {
         "name": "Glossary delete",
-        "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+        "input": "user-7b0bdafe-7ca0-457c-8a2c-7908ad836f2b",
         "expected": true,
         "actual": true,
         "status": "passed"
@@ -301,22 +315,27 @@
   },
   "localAssetChecks": [
     {
-      "url": "/indictrans2/en-indic-200m-fp32/encoder_model.onnx",
+      "url": "/quantized/en-indic-200m-fp32/encoder_model.onnx",
       "status": 200,
-      "contentLength": 237174
+      "contentLength": 416139
     },
     {
-      "url": "/indictrans2/en-indic-200m-fp32/encoder_model.onnx.data",
+      "url": "/quantized/en-indic-200m-fp32/encoder_model.onnx.data",
       "status": 200,
-      "contentLength": 293703680
+      "contentLength": 73791488
     },
     {
-      "url": "/indictrans2/en-indic-200m-fp32/decoder_shared.onnx.data",
+      "url": "/quantized/en-indic-200m-fp32/decoder_model.onnx.data",
       "status": 200,
-      "contentLength": 805691392
+      "contentLength": 201954304
     },
     {
-      "url": "/indictrans2/en-indic-200m-fp32/tokenizer_src.json",
+      "url": "/quantized/en-indic-200m-fp32/decoder_with_past_model.onnx.data",
+      "status": 200,
+      "contentLength": 192443392
+    },
+    {
+      "url": "/quantized/en-indic-200m-fp32/tokenizer_src.json",
       "status": 200,
       "contentLength": 3906621
     }
@@ -423,7 +442,7 @@
     },
     {
       "name": "Glossary add and retrieve",
-      "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+      "input": "user-7b0bdafe-7ca0-457c-8a2c-7908ad836f2b",
       "expected": true,
       "actual": true,
       "status": "passed"
@@ -450,7 +469,7 @@
     },
     {
       "name": "Glossary delete",
-      "input": "user-47bb0e1b-87e8-45b1-9113-b58b2f94622b",
+      "input": "user-7b0bdafe-7ca0-457c-8a2c-7908ad836f2b",
       "expected": true,
       "actual": true,
       "status": "passed"
@@ -514,7 +533,7 @@
       "name": "Six-direction regression tam_Taml to eng_Latn",
       "expected": "Translation completes and contains the expected target script.",
       "actual": {
-        "translation": "I'm going to college today.",
+        "translation": "I am going to college today.",
         "sourceTokenCount": 10,
         "chunkCount": 1
       },
@@ -524,7 +543,7 @@
       "name": "Six-direction regression kan_Knda to eng_Latn",
       "expected": "Translation completes and contains the expected target script.",
       "actual": {
-        "translation": "I am going to college today.",
+        "translation": "I'm going to college today.",
         "sourceTokenCount": 11,
         "chunkCount": 1
       },
@@ -562,6 +581,11 @@
     "sixDirectionRegression": {
       "passed": 6,
       "failed": 0
+    },
+    "uiRepaint": {
+      "passed": 6,
+      "failed": 0,
+      "maxDelayMs": 42.30000001192093
     },
     "markerPreservationProbes": {
       "passed": 0,

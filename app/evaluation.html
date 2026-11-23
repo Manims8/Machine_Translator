@@ -1,1 +1,47 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TriLingua Model Evaluation</title><link rel="stylesheet" href="/src/css/evaluation.css"></head><body><main><h1>TriLingua – Model Evaluation</h1><p>Automated multilingual evaluation using local FLORES-200 data and SacreBLEU.</p><label>Dataset JSONL <input id="file" type="file" accept=".jsonl,application/json"></label><label>Direction <select id="direction"></select></label><label>Export format <select id="format"><option value="jsonl">JSONL</option><option value="csv">CSV</option><option value="txt">Text</option></select></label><div><button id="pilot">Run 25-sentence pilot</button><button id="full">Run complete direction</button><button id="pause">Pause</button><button id="resume">Resume</button><button id="cancel">Cancel</button><button id="export">Export predictions</button><button id="clear">Clear temporary cache</button></div><progress id="progress" max="100" value="0"></progress><pre id="status">Load a local dataset JSONL to begin.</pre><p>Predictions use the production translation pipeline, sequentially. State is checkpointed in IndexedDB.</p></main><script type="module" src="/src/js/evaluationRunner.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TriLingua Model Evaluation</title>
+    <link rel="stylesheet" href="/src/css/evaluation.css" />
+  </head>
+  <body>
+    <main>
+      <h1>TriLingua – Model Evaluation</h1>
+      <p>
+        Automated multilingual evaluation using local FLORES-200 data and
+        SacreBLEU.
+      </p>
+      <label
+        >Dataset JSONL
+        <input id="file" type="file" accept=".jsonl,application/json" /></label
+      ><label
+        >Direction
+        <select id="direction"></select></label
+      ><label
+        >Export format
+        <select id="format">
+          <option value="jsonl">JSONL</option>
+          <option value="csv">CSV</option>
+          <option value="txt">Text</option>
+        </select></label
+      >
+      <div>
+        <button id="pilot">Run 25-sentence pilot</button
+        ><button id="full">Run complete direction</button
+        ><button id="pause">Pause</button><button id="resume">Resume</button
+        ><button id="cancel">Cancel</button
+        ><button id="export">Export predictions</button
+        ><button id="clear">Clear temporary cache</button>
+      </div>
+      <progress id="progress" max="100" value="0"></progress>
+      <pre id="status">Load a local dataset JSONL to begin.</pre>
+      <p>
+        Predictions use the production translation pipeline, sequentially. State
+        is checkpointed in IndexedDB.
+      </p>
+    </main>
+    <script type="module" src="/src/js/evaluationRunner.js"></script>
+  </body>
+</html>

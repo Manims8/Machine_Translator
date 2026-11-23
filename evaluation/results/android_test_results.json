@@ -1,0 +1,119 @@
+{
+  "device": "Samsung SM-A146B",
+  "android_version": "15",
+  "apk_bytes": 1429001046,
+  "mem_total_kb": 7641344,
+  "overall_result": "passed",
+  "translations": [
+    {
+      "direction": "Tamil → English",
+      "input_type": "Short",
+      "input_length": 29,
+      "model_load": "8.0 s",
+      "translation_time": "0.80 s",
+      "result": "OK",
+      "translation": "The bus arrived early."
+    },
+    {
+      "direction": "Tamil → English",
+      "input_type": "4-sentence paragraph",
+      "input_length": 231,
+      "model_load": "8.0 s",
+      "translation_time": "3.37 s",
+      "result": "OK",
+      "translation": "The rain stopped before noon. We went to the nearby library. My sister returned two books and picked up a new novel. On the way home, we bought new fruits at a small store."
+    },
+    {
+      "direction": "Kannada → English",
+      "input_type": "Short",
+      "input_length": 17,
+      "model_load": "8.0 s",
+      "translation_time": "0.50 s",
+      "result": "OK",
+      "translation": "The bus arrived quickly."
+    },
+    {
+      "direction": "Kannada → English",
+      "input_type": "4-sentence paragraph",
+      "input_length": 218,
+      "model_load": "8.0 s",
+      "translation_time": "3.99 s",
+      "result": "OK",
+      "translation": "The rain stopped before noon. We walked to the nearest library. My sister returned two books and picked up a new novel. On the way home, we bought fresh fruit from a small store."
+    },
+    {
+      "direction": "English → Tamil",
+      "input_type": "Short",
+      "input_length": 22,
+      "model_load": "9.1 s",
+      "translation_time": "0.95 s",
+      "result": "OK",
+      "translation": "பேருந்து சீக்கிரம் வந்து சேர்ந்தது."
+    },
+    {
+      "direction": "English → Tamil",
+      "input_type": "4-sentence paragraph",
+      "input_length": 181,
+      "model_load": "9.1 s",
+      "translation_time": "6.08 s",
+      "result": "OK",
+      "translation": "மதியத்திற்கு முன்பு மழை நின்றுவிட்டது. நாங்கள் பக்கத்து நூலகத்திற்கு நடந்து சென்றோம். என் சகோதரி இரண்டு புத்தகங்களைத் திருப்பிக் கொடுத்து ஒரு புதிய நாவலைக் கடன் வாங்கினார். வீட்டிற்குச் செல்லும் வழியில் ஒரு சிறிய கடையில் இருந்து புதிய பழங்களை வாங்கினோம்."
+    },
+    {
+      "direction": "English → Kannada",
+      "input_type": "Short",
+      "input_length": 22,
+      "model_load": "9.1 s",
+      "translation_time": "0.89 s",
+      "result": "OK",
+      "translation": "ಬಸ್ ಬೇಗನೆ ಬಂದಿತು."
+    },
+    {
+      "direction": "English → Kannada",
+      "input_type": "4-sentence paragraph",
+      "input_length": 181,
+      "model_load": "9.1 s",
+      "translation_time": "6.49 s",
+      "result": "OK",
+      "translation": "ಮಧ್ಯಾಹ್ನದ ಮೊದಲು ಮಳೆ ನಿಲ್ಲಿತು. ನಾವು ನೆರೆಹೊರೆಯ ಗ್ರಂಥಾಲಯಕ್ಕೆ ಹೋದೆವು. ನನ್ನ ಸಹೋದರಿ ಎರಡು ಪುಸ್ತಕಗಳನ್ನು ಹಿಂದಿರುಗಿಸಿ ಹೊಸ ಕಾದಂಬರಿಯನ್ನು ಎರವಲು ಪಡೆದರು. ಮನೆಗೆ ಹೋಗುವ ದಾರಿಯಲ್ಲಿ ನಾವು ಒಂದು ಸಣ್ಣ ಅಂಗಡಿಯಿಂದ ತಾಜಾ ಹಣ್ಣುಗಳನ್ನು ಖರೀದಿಸಿದೆವು."
+    },
+    {
+      "direction": "Tamil → Kannada",
+      "input_type": "Short",
+      "input_length": 29,
+      "model_load": "10.7 s",
+      "translation_time": "1.15 s",
+      "result": "OK",
+      "translation": "ಬಸ್ ಮುಂಚಿತವಾಗಿ ಬಂದಿತು."
+    },
+    {
+      "direction": "Tamil → Kannada",
+      "input_type": "4-sentence paragraph",
+      "input_length": 231,
+      "model_load": "10.7 s",
+      "translation_time": "7.05 s",
+      "result": "OK",
+      "translation": "ಮಧ್ಯಾಹ್ನದ ಮೊದಲು ಮಳೆ ನಿಲ್ಲಿತು. ನಾವು ಹತ್ತಿರದ ಗ್ರಂಥಾಲಯಕ್ಕೆ ಹೋದೆವು. ನನ್ನ ಸಹೋದರಿ ಎರಡು ಪುಸ್ತಕಗಳನ್ನು ಹಿಂದಿರುಗಿಸಿ ಹೊಸ ಕಾದಂಬರಿಯನ್ನು ತೆಗೆದುಕೊಂಡಳು. ಮನೆಗೆ ಹೋಗುವ ದಾರಿಯಲ್ಲಿ ಒಂದು ಸಣ್ಣ ಅಂಗಡಿಯಲ್ಲಿ ನಾವು ಹೊಸ ಹಣ್ಣುಗಳನ್ನು ಖರೀದಿಸಿದೆವು."
+    },
+    {
+      "direction": "Kannada → Tamil",
+      "input_type": "Short",
+      "input_length": 17,
+      "model_load": "10.7 s",
+      "translation_time": "0.87 s",
+      "result": "OK",
+      "translation": "பேருந்து விரைவாக வந்தது."
+    },
+    {
+      "direction": "Kannada → Tamil",
+      "input_type": "4-sentence paragraph",
+      "input_length": 218,
+      "model_load": "10.7 s",
+      "translation_time": "7.50 s",
+      "result": "OK",
+      "translation": "மதியத்திற்கு முன்பு மழை நிறுத்தப்பட்டது. நாங்கள் அருகிலுள்ள நூலகத்திற்குச் சென்றோம். என் சகோதரி இரண்டு புத்தகங்களை திருப்பிக் கொடுத்து ஒரு புதிய நாவலை எடுத்துக் கொண்டார். வீட்டிற்குத் திரும்பும் போது ஒரு சிறிய கடையில் இருந்து புதிய பழங்களை வாங்கினார்."
+    }
+  ],
+  "source": "evaluation/results/android_test_results.md",
+  "limitations": "Single connected-device run; not a disconnected installation test or general device guarantee."
+}

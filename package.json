@@ -5,9 +5,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:android": "vite build --base=./",
     "preview": "vite preview",
     "smoke": "node scripts/run_browser_smoke.mjs",
-    "benchmark:local": "node scripts/run_local_benchmark.mjs"
+    "benchmark:local": "node scripts/run_local_benchmark.mjs",
+    "dev:evaluation": "vite --open /evaluation.html",
+    "test:nlp": "node scripts/test_nlp_components.mjs",
+    "test:indicnlp": "python scripts/test_indicnlp.py",
+    "summarize": "python scripts/summarize_results.py",
+    "android:stage": "node scripts/stage_android_models.mjs"
   },
   "keywords": [],
   "author": "",

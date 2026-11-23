@@ -1,0 +1,246 @@
+{
+  "project": "TriLingua Stage 3",
+  "generatedAt": "2026-11-23T04:54:36.585Z",
+  "browser": "Chrome/158.0.8127.36",
+  "offlineMethod": "Headless browser external DNS blocked with host-resolver-rules; localhost Vite access preserved.",
+  "offlineRefreshTest": {
+    "translation": "இன்று எப்படி இருக்கிறீர்கள்?",
+    "sourceLanguage": "eng_Latn",
+    "targetLanguage": "tam_Taml",
+    "modelFamily": "en-indic-200m",
+    "sourceTokenCount": 8,
+    "generatedTokenCount": 6,
+    "chunkCount": 1,
+    "sentenceCount": 1,
+    "originalText": "How are you today?",
+    "normalizedText": "How are you today?",
+    "detectedEntities": [],
+    "entityProtectionEnabled": false,
+    "entityProtectionSucceeded": true,
+    "glossaryProtectionEnabled": false,
+    "glossaryApplied": false,
+    "glossaryReferenceCount": 5,
+    "appliedGlossaryTerms": [],
+    "preprocessingTimeMs": 0.30000001192092896,
+    "translationTimeMs": 262,
+    "postprocessingTimeMs": 0,
+    "modelLoadTimeMs": 3707.800000011921,
+    "warnings": [
+      "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+    ],
+    "status": "passed"
+  },
+  "markerPreservationTests": {
+    "checks": [],
+    "entityTests": [],
+    "glossaryTests": [],
+    "supportGateChecks": []
+  },
+  "longInputTokenizationTest": {
+    "status": "not run"
+  },
+  "errorHandling": {
+    "checks": [],
+    "passed": 0,
+    "failed": 0
+  },
+  "localAssetChecks": [
+    {
+      "url": "/quantized/en-indic-200m-fp32/encoder_model.onnx",
+      "status": 200,
+      "contentLength": 416139
+    },
+    {
+      "url": "/quantized/en-indic-200m-fp32/encoder_model.onnx.data",
+      "status": 200,
+      "contentLength": 73791488
+    },
+    {
+      "url": "/quantized/en-indic-200m-fp32/decoder_model.onnx.data",
+      "status": 200,
+      "contentLength": 201954304
+    },
+    {
+      "url": "/quantized/en-indic-200m-fp32/decoder_with_past_model.onnx.data",
+      "status": 200,
+      "contentLength": 192443392
+    },
+    {
+      "url": "/quantized/en-indic-200m-fp32/tokenizer_src.json",
+      "status": 200,
+      "contentLength": 3906621
+    }
+  ],
+  "localRuntimeRequests": [
+    "/@fs/D:/python/Machine_Translator/node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.wasm",
+    "/@fs/D:/python/Machine_Translator/node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.mjs"
+  ],
+  "externalOriginsRequested": [],
+  "browserErrors": [],
+  "results": [
+    {
+      "translation": "இன்று எப்படி இருக்கிறீர்கள்?",
+      "sourceLanguage": "eng_Latn",
+      "targetLanguage": "tam_Taml",
+      "modelFamily": "en-indic-200m",
+      "sourceTokenCount": 8,
+      "generatedTokenCount": 6,
+      "chunkCount": 1,
+      "sentenceCount": 1,
+      "originalText": "How are you today?",
+      "normalizedText": "How are you today?",
+      "detectedEntities": [],
+      "entityProtectionEnabled": false,
+      "entityProtectionSucceeded": true,
+      "glossaryProtectionEnabled": false,
+      "glossaryApplied": false,
+      "glossaryReferenceCount": 5,
+      "appliedGlossaryTerms": [],
+      "preprocessingTimeMs": 10.099999994039536,
+      "translationTimeMs": 306.10000002384186,
+      "postprocessingTimeMs": 0,
+      "modelLoadTimeMs": 4490,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
+      "status": "passed"
+    },
+    {
+      "translation": "ನಾನು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "sourceLanguage": "eng_Latn",
+      "targetLanguage": "kan_Knda",
+      "modelFamily": "en-indic-200m",
+      "sourceTokenCount": 9,
+      "generatedTokenCount": 8,
+      "chunkCount": 1,
+      "sentenceCount": 1,
+      "originalText": "I am going to college.",
+      "normalizedText": "I am going to college.",
+      "detectedEntities": [],
+      "entityProtectionEnabled": false,
+      "entityProtectionSucceeded": true,
+      "glossaryProtectionEnabled": false,
+      "glossaryApplied": false,
+      "glossaryReferenceCount": 5,
+      "appliedGlossaryTerms": [],
+      "preprocessingTimeMs": 0.30000001192092896,
+      "translationTimeMs": 382.90000000596046,
+      "postprocessingTimeMs": 0.09999999403953552,
+      "modelLoadTimeMs": 4490,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
+      "status": "passed"
+    },
+    {
+      "translation": "I am going to college today.",
+      "sourceLanguage": "tam_Taml",
+      "targetLanguage": "eng_Latn",
+      "modelFamily": "indic-en-200m",
+      "sourceTokenCount": 10,
+      "generatedTokenCount": 8,
+      "chunkCount": 1,
+      "sentenceCount": 1,
+      "originalText": "நான் இன்று கல்லூரிக்குச் செல்கிறேன்.",
+      "normalizedText": "நான் இன்று கல்லூரிக்குச் செல்கிறேன்.",
+      "detectedEntities": [],
+      "entityProtectionEnabled": false,
+      "entityProtectionSucceeded": true,
+      "glossaryProtectionEnabled": false,
+      "glossaryApplied": false,
+      "glossaryReferenceCount": 5,
+      "appliedGlossaryTerms": [],
+      "preprocessingTimeMs": 0.7000000178813934,
+      "translationTimeMs": 315.5,
+      "postprocessingTimeMs": 0.09999999403953552,
+      "modelLoadTimeMs": 3406.0999999940395,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
+      "status": "passed"
+    },
+    {
+      "translation": "I'm going to college today.",
+      "sourceLanguage": "kan_Knda",
+      "targetLanguage": "eng_Latn",
+      "modelFamily": "indic-en-200m",
+      "sourceTokenCount": 11,
+      "generatedTokenCount": 9,
+      "chunkCount": 1,
+      "sentenceCount": 1,
+      "originalText": "ನಾನು ಇಂದು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "normalizedText": "ನಾನು ಇಂದು ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "detectedEntities": [],
+      "entityProtectionEnabled": true,
+      "entityProtectionSucceeded": true,
+      "glossaryProtectionEnabled": false,
+      "glossaryApplied": false,
+      "glossaryReferenceCount": 5,
+      "appliedGlossaryTerms": [],
+      "preprocessingTimeMs": 0.699999988079071,
+      "translationTimeMs": 265.5,
+      "postprocessingTimeMs": 0,
+      "modelLoadTimeMs": 3406.0999999940395,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
+      "status": "passed"
+    },
+    {
+      "translation": "ಹಲೋ, ನೀವು ಹೇಗಿದ್ದೀರಿ",
+      "sourceLanguage": "tam_Taml",
+      "targetLanguage": "kan_Knda",
+      "modelFamily": "indic-indic-320m",
+      "sourceTokenCount": 11,
+      "generatedTokenCount": 7,
+      "chunkCount": 1,
+      "sentenceCount": 1,
+      "originalText": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்?",
+      "normalizedText": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்?",
+      "detectedEntities": [],
+      "entityProtectionEnabled": false,
+      "entityProtectionSucceeded": true,
+      "glossaryProtectionEnabled": false,
+      "glossaryApplied": false,
+      "glossaryReferenceCount": 5,
+      "appliedGlossaryTerms": [],
+      "preprocessingTimeMs": 1.0999999940395355,
+      "translationTimeMs": 339.09999999403954,
+      "postprocessingTimeMs": 0,
+      "modelLoadTimeMs": 4493.4000000059605,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
+      "status": "passed"
+    },
+    {
+      "translation": "வணக்கம், நீங்கள் எப்படி இருக்கிறீர்கள்",
+      "sourceLanguage": "kan_Knda",
+      "targetLanguage": "tam_Taml",
+      "modelFamily": "indic-indic-320m",
+      "sourceTokenCount": 10,
+      "generatedTokenCount": 8,
+      "chunkCount": 1,
+      "sentenceCount": 1,
+      "originalText": "ನಮಸ್ಕಾರ, ನೀವು ಹೇಗಿದ್ದೀರಿ?",
+      "normalizedText": "ನಮಸ್ಕಾರ, ನೀವು ಹೇಗಿದ್ದೀರಿ?",
+      "detectedEntities": [],
+      "entityProtectionEnabled": false,
+      "entityProtectionSucceeded": true,
+      "glossaryProtectionEnabled": false,
+      "glossaryApplied": false,
+      "glossaryReferenceCount": 5,
+      "appliedGlossaryTerms": [],
+      "preprocessingTimeMs": 0.4000000059604645,
+      "translationTimeMs": 435.59999999403954,
+      "postprocessingTimeMs": 0.09999999403953552,
+      "modelLoadTimeMs": 4493.4000000059605,
+      "warnings": [
+        "Glossary is reference-only for this direction because glossary marker preservation has not been verified."
+      ],
+      "status": "passed"
+    }
+  ],
+  "passed": 6,
+  "failed": 0
+}

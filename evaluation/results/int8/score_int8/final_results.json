@@ -1,0 +1,262 @@
+{
+  "results": [
+    {
+      "direction": "eng_Latn-tam_Taml",
+      "status": "complete",
+      "sentences": 202,
+      "successful": 202,
+      "failed": 0,
+      "bleu": 18.042938740792387,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:none|smooth:exp|version:2.6.0",
+      "precisions": [
+        51.93120947279391,
+        25.53064275037369,
+        13.585746102449889,
+        7.8884733083985035
+      ],
+      "brevity_penalty": 0.9293207077944862,
+      "chrf++": 54.63251130260346,
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+      "time_mean_ms": 1391.6881188126188,
+      "time_median_ms": 1313.5499999970198,
+      "sacrebleu": "2.6.0",
+      "indicnlp": "0.92",
+      "preprocessing": "IndicNormalizerFactory + trivial_tokenize; English 13a",
+      "examples": [
+        {
+          "id": 5,
+          "source": "Danius said, \"Right now we are doing nothing. I have called and sent emails to his closest collaborator and received very friendly replies. For now, that is certainly enough.\"",
+          "reference": "\"\"\"இப்போது நாம் ஒன்றும் செய்யவில்லை. நான் அவரது நெருங்கிய கூட்டாளிக்கு அழைப்பு செய்து மின்னஞ்சல்களை அனுப்பி, மிகவும் நட்புடன் பதில்களைப் பெற்றுள்ளேன். இப்போதைக்கு, அது போதுமானது.\"\" என்று டானியஸ் கூறினார்.\"",
+          "prediction": "டேனியஸ் கூறினார்ஃ \" இப்போது நாங்கள் எதுவும் செய்யவில்லை. நான் அவரது நெருங்கிய ஒத்துழைப்பாளருக்கு மின்னஞ்சல்களை அனுப்பினேன், மிகவும் நட்பான பதில்களைப் பெற்றேன். இப்போதைக்கு அது நிச்சயமாக போதுமானது."
+        },
+        {
+          "id": 10,
+          "source": "Ring also settled a lawsuit with competing security company, the ADT Corporation.",
+          "reference": "ரிங் அதன் போட்டி பாதுகாப்பு நிறுவனமான ADT கார்ப்பரேஷனுடன் உரிமை கோரல் வழக்கை தீர்த்துக் கொண்டது.",
+          "prediction": "போட்டி பாதுகாப்பு நிறுவனமான ஏடிடி கார்ப்பரேஷனுடன் ஒரு வழக்கை ரிங் தீர்த்துக் கொண்டார்."
+        },
+        {
+          "id": 15,
+          "source": "We agree with the USOC's statement that the interests of our athletes and clubs, and their sport, may be better served by moving forward with meaningful change within our organization, rather than decertification.",
+          "reference": "எங்களுடைய  விளையாட்டு வீரர்கள் மற்றும் கிளப்புகளின் நலன்கள், மற்றும் அவர்களின் விளையாட்டு ஆகியவை தீர்மானிப்பதை விட, எங்கள் நிறுவனத்திற்குள் அர்த்தமுள்ள மாற்றத்துடன் முன்னேறுவதன் மூலம் சிறப்பாக சேவை செய்யப்படலாம், என்ற  USOC's  அறிக்கையுடன் நாங்கள் உடன்படுகிறோம்.",
+          "prediction": "நமது விளையாட்டு வீரர்கள் மற்றும் கிளப்புகளின் நலன்கள் மற்றும் அவர்களின் விளையாட்டுகள் ஆகியவை நமது நிறுவனத்திற்குள் அர்த்தமுள்ள மாற்றத்துடன் முன்னேறிச் செல்வதன் மூலம் சிறப்பாகச் செயல்பட முடியும் என்ற யு. எஸ். ஓ. சி. யின் அறிக்கையுடன் நாங்கள் உடன்படுகிறோம்."
+        }
+      ]
+    },
+    {
+      "direction": "eng_Latn-kan_Knda",
+      "status": "complete",
+      "sentences": 202,
+      "successful": 202,
+      "failed": 0,
+      "bleu": 19.95634644120262,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:none|smooth:exp|version:2.6.0",
+      "precisions": [
+        53.837001784651996,
+        27.18354430379747,
+        15.280594996619337,
+        8.74455732946299
+      ],
+      "brevity_penalty": 0.9489968574691494,
+      "chrf++": 54.92991126059172,
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+      "time_mean_ms": 1291.133168316566,
+      "time_median_ms": 1230.5999999940395,
+      "sacrebleu": "2.6.0",
+      "indicnlp": "0.92",
+      "preprocessing": "IndicNormalizerFactory + trivial_tokenize; English 13a",
+      "examples": [
+        {
+          "id": 5,
+          "source": "Danius said, \"Right now we are doing nothing. I have called and sent emails to his closest collaborator and received very friendly replies. For now, that is certainly enough.\"",
+          "reference": "ಡೇನಿಯಸ್, \" ಸಧ್ಯಕ್ಕೆ ನಾವೇನೂ ಮಾಡುತ್ತಿಲ್ಲ. ನಾನು ಅವರ ಅತ್ಯಂತ ನಿಕಟ ಸಹಯೋಗಿಗೆ ದೂರವಾಣಿ ಕರೆ ಮಾಡಿದ್ಡೇನೆ ಹಾಗೂ ಈಮೇಲ್‌ಗಳನ್ನು ಕಳಿಸಿದ್ದೇನೆ ಹಾಗೂ ಅವರಿಂದ ಸ್ನೇಹಪೂರ್ಣ ಉತ್ತರಗಳನ್ನು ಪಡೆದಿದ್ದೇನೆ. ಈಗಿನ ಮಟ್ಟಕ್ಕೆ ಇದು ನಿಜವಾಗಿಯೂ ಸಾಕು\" ಎಂದು ಹೇಳಿದ.",
+          "prediction": "ಡೇನಿಯಸ್ ಹೇಳಿದರುಃ \" ಈಗ ನಾವು ಏನೂ ಮಾಡುತ್ತಿಲ್ಲ. ನಾನು ಕರೆ ಮಾಡಿ ಅವನ ಹತ್ತಿರದ ಸಹಯೋಗಿಗೆ ಇಮೇಲ್ಗಳನ್ನು ಕಳುಹಿಸಿದ್ದೇನೆ ಮತ್ತು ಬಹಳ ಸ್ನೇಹಪರವಾದ ಉತ್ತರಗಳನ್ನು ಪಡೆದಿದ್ದೇನೆ. ಸದ್ಯಕ್ಕೆ ಅದು ಖಂಡಿತವಾಗಿಯೂ ಸಾಕು."
+        },
+        {
+          "id": 10,
+          "source": "Ring also settled a lawsuit with competing security company, the ADT Corporation.",
+          "reference": "ಎಡಿಟಿ ಕಾರ್ಪೊರೇಶನ್‌ ಎಂಬ ಪ್ರತಿಸ್ಫರ್ಧಿ ಭದ್ರತಾ ಕಂಪನಿಯು ಜೊತೆಗೆ ದಾವೆಯನ್ನೂ ರಿಂಗ್ ಪರಿಹರಿಸಿದರು.",
+          "prediction": "ರಿಂಗ್, ಸ್ಪರ್ಧಾತ್ಮಕ ಭದ್ರತಾ ಕಂಪನಿಯಾದ ಎಡಿಟಿ ಕಾರ್ಪೊರೇಶನ್ನೊಂದಿಗೆ ಮೊಕದ್ದಮೆಯನ್ನು ಸಹ ಇತ್ಯರ್ಥಪಡಿಸಿದರು."
+        },
+        {
+          "id": 15,
+          "source": "We agree with the USOC's statement that the interests of our athletes and clubs, and their sport, may be better served by moving forward with meaningful change within our organization, rather than decertification.",
+          "reference": "ನಮ್ಮ ಕ್ರೀಡಾಪಟುಗಳು ಮತ್ತು ಕ್ಲಬ್‌ಗಳ ಹಿತಾಸಕ್ತಿಗಳು ಮತ್ತು ಅವರ ಕ್ರೀಡೆಯು ನಿರ್ಣಾಯಕೀಕರಣದ ಬದಲು ನಮ್ಮ ಸಂಸ್ಥೆಯ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಅರ್ಥಪೂರ್ಣ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಿ ಮುಂದುವರಿಯುವ ಮೂಲಕ ಉತ್ತಮವಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸಬಹುದು ಎಂಬ USOC ಹೇಳಿಕೆಯನ್ನು ನಾವು ಒಪ್ಪುತ್ತೇವೆ.",
+          "prediction": "ನಮ್ಮ ಕ್ರೀಡಾಪಟುಗಳು ಮತ್ತು ಕ್ಲಬ್ಗಳು ಮತ್ತು ಅವರ ಕ್ರೀಡೆಯ ಹಿತಾಸಕ್ತಿಗಳನ್ನು ದೃಢೀಕರಣಕ್ಕಿಂತ ಹೆಚ್ಚಾಗಿ ನಮ್ಮ ಸಂಸ್ಥೆಯೊಳಗೆ ಅರ್ಥಪೂರ್ಣ ಬದಲಾವಣೆಯೊಂದಿಗೆ ಮುಂದುವರಿಯುವ ಮೂಲಕ ಉತ್ತಮವಾಗಿ ಪೂರೈಸಬಹುದು ಎಂಬ ಯು. ಎಸ್. ಓ. ಸಿ. ಯ ಹೇಳಿಕೆಯನ್ನು ನಾವು ಒಪ್ಪುತ್ತೇವೆ."
+        }
+      ]
+    },
+    {
+      "direction": "tam_Taml-eng_Latn",
+      "status": "complete",
+      "sentences": 202,
+      "successful": 202,
+      "failed": 0,
+      "bleu": 33.96791305985327,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "precisions": [
+        66.27140974967062,
+        40.83180147058823,
+        27.903614457831324,
+        19.199594731509624
+      ],
+      "brevity_penalty": 0.9789252859324228,
+      "chrf++": 58.038799370834774,
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+      "time_mean_ms": 876.7252475240148,
+      "time_median_ms": 797.1500000059605,
+      "sacrebleu": "2.6.0",
+      "indicnlp": "0.92",
+      "preprocessing": "IndicNormalizerFactory + trivial_tokenize; English 13a",
+      "examples": [
+        {
+          "id": 5,
+          "source": "\"\"\"இப்போது நாம் ஒன்றும் செய்யவில்லை. நான் அவரது நெருங்கிய கூட்டாளிக்கு அழைப்பு செய்து மின்னஞ்சல்களை அனுப்பி, மிகவும் நட்புடன் பதில்களைப் பெற்றுள்ளேன். இப்போதைக்கு, அது போதுமானது.\"\" என்று டானியஸ் கூறினார்.\"",
+          "reference": "Danius said, \"Right now we are doing nothing. I have called and sent emails to his closest collaborator and received very friendly replies. For now, that is certainly enough.\"",
+          "prediction": "\" \" \" We haven 't done anything now. I've called and emailed his closest associate and received very friendly responses. For now, that's enough, \" \" said Danias. \""
+        },
+        {
+          "id": 10,
+          "source": "ரிங் அதன் போட்டி பாதுகாப்பு நிறுவனமான ADT கார்ப்பரேஷனுடன் உரிமை கோரல் வழக்கை தீர்த்துக் கொண்டது.",
+          "reference": "Ring also settled a lawsuit with competing security company, the ADT Corporation.",
+          "prediction": "Ring settled the claim lawsuit with its rival security firm, ADT Corporation."
+        },
+        {
+          "id": 15,
+          "source": "எங்களுடைய  விளையாட்டு வீரர்கள் மற்றும் கிளப்புகளின் நலன்கள், மற்றும் அவர்களின் விளையாட்டு ஆகியவை தீர்மானிப்பதை விட, எங்கள் நிறுவனத்திற்குள் அர்த்தமுள்ள மாற்றத்துடன் முன்னேறுவதன் மூலம் சிறப்பாக சேவை செய்யப்படலாம், என்ற  USOC's  அறிக்கையுடன் நாங்கள் உடன்படுகிறோம்.",
+          "reference": "We agree with the USOC's statement that the interests of our athletes and clubs, and their sport, may be better served by moving forward with meaningful change within our organization, rather than decertification.",
+          "prediction": "We agree with the USOC's statement that the interests of our athletes and clubs and their sport can be better served by moving forward with meaningful change within our organization rather than being determined by it."
+        }
+      ]
+    },
+    {
+      "direction": "kan_Knda-eng_Latn",
+      "status": "complete",
+      "sentences": 202,
+      "successful": 202,
+      "failed": 0,
+      "bleu": 33.011545908523246,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "precisions": [
+        66.17035252901248,
+        40.16036655211913,
+        26.759548402594284,
+        17.975258773037112
+      ],
+      "brevity_penalty": 0.9817752975509271,
+      "chrf++": 58.65461718579172,
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+      "time_mean_ms": 871.5702970293489,
+      "time_median_ms": 816.5999999940395,
+      "sacrebleu": "2.6.0",
+      "indicnlp": "0.92",
+      "preprocessing": "IndicNormalizerFactory + trivial_tokenize; English 13a",
+      "examples": [
+        {
+          "id": 5,
+          "source": "ಡೇನಿಯಸ್, \" ಸಧ್ಯಕ್ಕೆ ನಾವೇನೂ ಮಾಡುತ್ತಿಲ್ಲ. ನಾನು ಅವರ ಅತ್ಯಂತ ನಿಕಟ ಸಹಯೋಗಿಗೆ ದೂರವಾಣಿ ಕರೆ ಮಾಡಿದ್ಡೇನೆ ಹಾಗೂ ಈಮೇಲ್‌ಗಳನ್ನು ಕಳಿಸಿದ್ದೇನೆ ಹಾಗೂ ಅವರಿಂದ ಸ್ನೇಹಪೂರ್ಣ ಉತ್ತರಗಳನ್ನು ಪಡೆದಿದ್ದೇನೆ. ಈಗಿನ ಮಟ್ಟಕ್ಕೆ ಇದು ನಿಜವಾಗಿಯೂ ಸಾಕು\" ಎಂದು ಹೇಳಿದ.",
+          "reference": "Danius said, \"Right now we are doing nothing. I have called and sent emails to his closest collaborator and received very friendly replies. For now, that is certainly enough.\"",
+          "prediction": "\" Danes said, \" \" We're not doing anything right now. I've phoned his closest associate, sent emails, and got friendly replies from them. That's really enough for now. \" \" \""
+        },
+        {
+          "id": 10,
+          "source": "ಎಡಿಟಿ ಕಾರ್ಪೊರೇಶನ್‌ ಎಂಬ ಪ್ರತಿಸ್ಫರ್ಧಿ ಭದ್ರತಾ ಕಂಪನಿಯು ಜೊತೆಗೆ ದಾವೆಯನ್ನೂ ರಿಂಗ್ ಪರಿಹರಿಸಿದರು.",
+          "reference": "Ring also settled a lawsuit with competing security company, the ADT Corporation.",
+          "prediction": "Ring also settled the lawsuit with a rival security company, ADT Corporation."
+        },
+        {
+          "id": 15,
+          "source": "ನಮ್ಮ ಕ್ರೀಡಾಪಟುಗಳು ಮತ್ತು ಕ್ಲಬ್‌ಗಳ ಹಿತಾಸಕ್ತಿಗಳು ಮತ್ತು ಅವರ ಕ್ರೀಡೆಯು ನಿರ್ಣಾಯಕೀಕರಣದ ಬದಲು ನಮ್ಮ ಸಂಸ್ಥೆಯ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಅರ್ಥಪೂರ್ಣ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಿ ಮುಂದುವರಿಯುವ ಮೂಲಕ ಉತ್ತಮವಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸಬಹುದು ಎಂಬ USOC ಹೇಳಿಕೆಯನ್ನು ನಾವು ಒಪ್ಪುತ್ತೇವೆ.",
+          "reference": "We agree with the USOC's statement that the interests of our athletes and clubs, and their sport, may be better served by moving forward with meaningful change within our organization, rather than decertification.",
+          "prediction": "We agree with the USOC statement that the interests of our athletes and clubs and their sport can be better served by continuing to make meaningful changes within the scope of our organization rather than through decisiveness."
+        }
+      ]
+    },
+    {
+      "direction": "tam_Taml-kan_Knda",
+      "status": "complete",
+      "sentences": 202,
+      "successful": 202,
+      "failed": 0,
+      "bleu": 11.440387880202753,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:none|smooth:exp|version:2.6.0",
+      "precisions": [
+        42.14492753623188,
+        15.82512315270936,
+        7.353906762967827,
+        3.8677918424753868
+      ],
+      "brevity_penalty": 0.9748153150610527,
+      "chrf++": 43.86024779723211,
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+      "time_mean_ms": 1348.240594059524,
+      "time_median_ms": 1261.0000000149012,
+      "sacrebleu": "2.6.0",
+      "indicnlp": "0.92",
+      "preprocessing": "IndicNormalizerFactory + trivial_tokenize; English 13a",
+      "examples": [
+        {
+          "id": 5,
+          "source": "\"\"\"இப்போது நாம் ஒன்றும் செய்யவில்லை. நான் அவரது நெருங்கிய கூட்டாளிக்கு அழைப்பு செய்து மின்னஞ்சல்களை அனுப்பி, மிகவும் நட்புடன் பதில்களைப் பெற்றுள்ளேன். இப்போதைக்கு, அது போதுமானது.\"\" என்று டானியஸ் கூறினார்.\"",
+          "reference": "ಡೇನಿಯಸ್, \" ಸಧ್ಯಕ್ಕೆ ನಾವೇನೂ ಮಾಡುತ್ತಿಲ್ಲ. ನಾನು ಅವರ ಅತ್ಯಂತ ನಿಕಟ ಸಹಯೋಗಿಗೆ ದೂರವಾಣಿ ಕರೆ ಮಾಡಿದ್ಡೇನೆ ಹಾಗೂ ಈಮೇಲ್‌ಗಳನ್ನು ಕಳಿಸಿದ್ದೇನೆ ಹಾಗೂ ಅವರಿಂದ ಸ್ನೇಹಪೂರ್ಣ ಉತ್ತರಗಳನ್ನು ಪಡೆದಿದ್ದೇನೆ. ಈಗಿನ ಮಟ್ಟಕ್ಕೆ ಇದು ನಿಜವಾಗಿಯೂ ಸಾಕು\" ಎಂದು ಹೇಳಿದ.",
+          "prediction": "\" ನಾವು ಈಗ ಏನೂ ಮಾಡಲಿಲ್ಲ. ನಾನು ಅವನ ಹತ್ತಿರದ ಸಂಗಾತಿಗೆ ಕರೆ ಮಾಡಿ ಇಮೇಲ್ಗಳನ್ನು ಕಳುಹಿಸಿ, ಹೆಚ್ಚು ಸ್ನೇಹಪರ ಪ್ರತಿಕ್ರಿಯೆಗಳನ್ನು ಪಡೆದಿದ್ದೇನೆ. ಸದ್ಯಕ್ಕೆ ಅದು ಸಾಕಾಗಿದೆ. \" ಎಂದು ಡ್ಯಾನಿಯಸ್ ಹೇಳಿದರು."
+        },
+        {
+          "id": 10,
+          "source": "ரிங் அதன் போட்டி பாதுகாப்பு நிறுவனமான ADT கார்ப்பரேஷனுடன் உரிமை கோரல் வழக்கை தீர்த்துக் கொண்டது.",
+          "reference": "ಎಡಿಟಿ ಕಾರ್ಪೊರೇಶನ್‌ ಎಂಬ ಪ್ರತಿಸ್ಫರ್ಧಿ ಭದ್ರತಾ ಕಂಪನಿಯು ಜೊತೆಗೆ ದಾವೆಯನ್ನೂ ರಿಂಗ್ ಪರಿಹರಿಸಿದರು.",
+          "prediction": "ರಿಂಗ್ ತನ್ನ ಸ್ಪರ್ಧಾತ್ಮಕ ಭದ್ರತಾ ಸಂಸ್ಥೆ ಎ. ಡಿ. ಟಿ. ಕಾರ್ಪೊರೇಶನ್ನೊಂದಿಗೆ ದಾವೆಯ ಪ್ರಕರಣವನ್ನು ಇತ್ಯರ್ಥಪಡಿಸಿತು."
+        },
+        {
+          "id": 15,
+          "source": "எங்களுடைய  விளையாட்டு வீரர்கள் மற்றும் கிளப்புகளின் நலன்கள், மற்றும் அவர்களின் விளையாட்டு ஆகியவை தீர்மானிப்பதை விட, எங்கள் நிறுவனத்திற்குள் அர்த்தமுள்ள மாற்றத்துடன் முன்னேறுவதன் மூலம் சிறப்பாக சேவை செய்யப்படலாம், என்ற  USOC's  அறிக்கையுடன் நாங்கள் உடன்படுகிறோம்.",
+          "reference": "ನಮ್ಮ ಕ್ರೀಡಾಪಟುಗಳು ಮತ್ತು ಕ್ಲಬ್‌ಗಳ ಹಿತಾಸಕ್ತಿಗಳು ಮತ್ತು ಅವರ ಕ್ರೀಡೆಯು ನಿರ್ಣಾಯಕೀಕರಣದ ಬದಲು ನಮ್ಮ ಸಂಸ್ಥೆಯ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಅರ್ಥಪೂರ್ಣ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಿ ಮುಂದುವರಿಯುವ ಮೂಲಕ ಉತ್ತಮವಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸಬಹುದು ಎಂಬ USOC ಹೇಳಿಕೆಯನ್ನು ನಾವು ಒಪ್ಪುತ್ತೇವೆ.",
+          "prediction": "ನಮ್ಮ ಕ್ರೀಡಾಪಟುಗಳು ಮತ್ತು ಕ್ಲಬ್ಗಳ ಹಿತಾಸಕ್ತಿಗಳು ಮತ್ತು ಅವರ ಆಟವನ್ನು ನಿರ್ಧರಿಸುವುದಕ್ಕಿಂತ ನಮ್ಮ ಸಂಸ್ಥೆಯೊಳಗೆ ಅರ್ಥಪೂರ್ಣ ಬದಲಾವಣೆಯೊಂದಿಗೆ ಮುಂದುವರಿಯುವ ಮೂಲಕ ಉತ್ತಮವಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸಬಹುದು ಎಂಬ ಯು. ಎಸ್. ಓ. ಸಿ. ಯ ಹೇಳಿಕೆಗೆ ನಾವು ಒಪ್ಪುತ್ತೇವೆ."
+        }
+      ]
+    },
+    {
+      "direction": "kan_Knda-tam_Taml",
+      "status": "complete",
+      "sentences": 202,
+      "successful": 202,
+      "failed": 0,
+      "bleu": 10.592246162661652,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:none|smooth:exp|version:2.6.0",
+      "precisions": [
+        41.246290801186944,
+        15.29243937232525,
+        6.96336663639116,
+        3.1925185424056757
+      ],
+      "brevity_penalty": 0.9733846108770283,
+      "chrf++": 45.2967794945115,
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+      "time_mean_ms": 1416.8222772285785,
+      "time_median_ms": 1291.4500000029802,
+      "sacrebleu": "2.6.0",
+      "indicnlp": "0.92",
+      "preprocessing": "IndicNormalizerFactory + trivial_tokenize; English 13a",
+      "examples": [
+        {
+          "id": 5,
+          "source": "ಡೇನಿಯಸ್, \" ಸಧ್ಯಕ್ಕೆ ನಾವೇನೂ ಮಾಡುತ್ತಿಲ್ಲ. ನಾನು ಅವರ ಅತ್ಯಂತ ನಿಕಟ ಸಹಯೋಗಿಗೆ ದೂರವಾಣಿ ಕರೆ ಮಾಡಿದ್ಡೇನೆ ಹಾಗೂ ಈಮೇಲ್‌ಗಳನ್ನು ಕಳಿಸಿದ್ದೇನೆ ಹಾಗೂ ಅವರಿಂದ ಸ್ನೇಹಪೂರ್ಣ ಉತ್ತರಗಳನ್ನು ಪಡೆದಿದ್ದೇನೆ. ಈಗಿನ ಮಟ್ಟಕ್ಕೆ ಇದು ನಿಜವಾಗಿಯೂ ಸಾಕು\" ಎಂದು ಹೇಳಿದ.",
+          "reference": "\"\"\"இப்போது நாம் ஒன்றும் செய்யவில்லை. நான் அவரது நெருங்கிய கூட்டாளிக்கு அழைப்பு செய்து மின்னஞ்சல்களை அனுப்பி, மிகவும் நட்புடன் பதில்களைப் பெற்றுள்ளேன். இப்போதைக்கு, அது போதுமானது.\"\" என்று டானியஸ் கூறினார்.\"",
+          "prediction": "டேனியஸ் மேலும் கூறினார், \" நாங்கள் இப்போது எதுவும் செய்யவில்லை. நான் அவரது நெருங்கிய கூட்டாளிக்கு தொலைபேசி அழைப்பு விடுத்தேன், மின்னஞ்சல்களை அனுப்பினேன், அவருடன் நட்பு பதில்களைப் பெற்றேன். இது உண்மையில் போதுமான அளவு \"."
+        },
+        {
+          "id": 10,
+          "source": "ಎಡಿಟಿ ಕಾರ್ಪೊರೇಶನ್‌ ಎಂಬ ಪ್ರತಿಸ್ಫರ್ಧಿ ಭದ್ರತಾ ಕಂಪನಿಯು ಜೊತೆಗೆ ದಾವೆಯನ್ನೂ ರಿಂಗ್ ಪರಿಹರಿಸಿದರು.",
+          "reference": "ரிங் அதன் போட்டி பாதுகாப்பு நிறுவனமான ADT கார்ப்பரேஷனுடன் உரிமை கோரல் வழக்கை தீர்த்துக் கொண்டது.",
+          "prediction": "ரிங் எடிடி கார்ப்பரேஷன் என்ற போட்டித் பாதுகாப்பு நிறுவனத்துடன் ஒரு வழக்கைத் தீர்க்கிறார்."
+        },
+        {
+          "id": 15,
+          "source": "ನಮ್ಮ ಕ್ರೀಡಾಪಟುಗಳು ಮತ್ತು ಕ್ಲಬ್‌ಗಳ ಹಿತಾಸಕ್ತಿಗಳು ಮತ್ತು ಅವರ ಕ್ರೀಡೆಯು ನಿರ್ಣಾಯಕೀಕರಣದ ಬದಲು ನಮ್ಮ ಸಂಸ್ಥೆಯ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಅರ್ಥಪೂರ್ಣ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಿ ಮುಂದುವರಿಯುವ ಮೂಲಕ ಉತ್ತಮವಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸಬಹುದು ಎಂಬ USOC ಹೇಳಿಕೆಯನ್ನು ನಾವು ಒಪ್ಪುತ್ತೇವೆ.",
+          "reference": "எங்களுடைய  விளையாட்டு வீரர்கள் மற்றும் கிளப்புகளின் நலன்கள், மற்றும் அவர்களின் விளையாட்டு ஆகியவை தீர்மானிப்பதை விட, எங்கள் நிறுவனத்திற்குள் அர்த்தமுள்ள மாற்றத்துடன் முன்னேறுவதன் மூலம் சிறப்பாக சேவை செய்யப்படலாம், என்ற  USOC's  அறிக்கையுடன் நாங்கள் உடன்படுகிறோம்.",
+          "prediction": "எங்கள் விளையாட்டு வீரர்கள் மற்றும் கிளப்புகளின் நலன்களுக்கும் அவர்களின் விளையாட்டுக்கும் நியாயப்படுத்துவதற்குப் பதிலாக எங்கள் நிறுவனத்தின் வரம்பில் அர்த்தமுள்ள மாற்றங்களைச் செய்வதன் மூலம் சிறப்பாக சேவை செய்ய முடியும் என்ற யு. எஸ். ஓ. சி கூற்றுக்கு நாங்கள் உடன்படுகிறோம்."
+        }
+      ]
+    }
+  ]
+}

@@ -26,3 +26,5 @@ truststore==0.10.5
 typing_extensions==4.16.0
 datasets==5.2.0
 indic-nlp-library==0.92
+onnx==1.23.2
+psutil==7.2.2

@@ -4,48 +4,349 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#174c46" />
-    <meta name="description" content="Private, local English, Tamil and Kannada translation." />
-    <title>TriLingua | Offline Translator</title>
+    <meta
+      name="description"
+      content="Translate English, Tamil and Kannada with local IndicTrans2 models."
+    />
+    <title>TriLingua | Local Translator</title>
     <link rel="stylesheet" href="/src/css/style.css" />
     <link rel="icon" href="data:," />
   </head>
   <body>
     <header class="topbar">
       <div class="topbar-inner">
-        <a class="brand" href="#home" aria-label="TriLingua home"><span class="brand-mark" aria-hidden="true">T</span><span><strong>TriLingua</strong><small>Offline Multilingual Translator</small></span></a>
-        <div class="header-actions"><span id="offline-status" class="status-pill status-ready"><i></i><span id="model-status">Ready · models stay on this device</span></span><button id="history-open" class="icon-button" type="button" aria-label="Open translation history" title="History">◷</button><button id="settings-open" class="icon-button" type="button" aria-label="Open settings" title="Settings">⚙</button></div>
+        <a class="brand" href="#home" aria-label="TriLingua home"
+          ><span class="brand-mark" aria-hidden="true">T</span
+          ><span
+            ><strong>TriLingua</strong
+            ><small>Local Multilingual Translator</small></span
+          ></a
+        >
+        <div class="header-actions">
+          <span id="offline-status" class="status-pill status-ready"
+            ><i></i
+            ><span id="model-status">Ready - runs on this device</span></span
+          ><button
+            id="history-open"
+            class="icon-button"
+            type="button"
+            aria-label="Open translation history"
+            title="History"
+          >
+            ◷</button
+          ><button
+            id="settings-open"
+            class="icon-button"
+            type="button"
+            aria-label="Open settings"
+            title="Settings"
+          >
+            ⚙
+          </button>
+        </div>
       </div>
     </header>
     <main id="home" class="page-shell">
-      <section class="hero"><p class="eyebrow">PRIVATE BY DESIGN · POWERED BY INDIC TRANS 2</p><h1>Your Languages.<br /><span>Your Translation.</span> Completely Offline.</h1><p>Translate between English, Tamil, and Kannada with local neural models. Your text stays in your browser.</p></section>
+      <section class="hero">
+        <p class="eyebrow">LOCAL INFERENCE . POWERED BY INDIC TRANS 2</p>
+        <h1>
+          Your Languages.<br /><span>Your Translation.</span> On your device.
+        </h1>
+        <p>
+          Translate between English, Tamil, and Kannada with local neural
+          models. The model files must be available from this app for
+          translation.
+        </p>
+      </section>
 
       <section class="workspace card" aria-labelledby="workspace-title">
-        <div class="workspace-heading"><div><p class="eyebrow">TRANSLATION WORKSPACE</p><h2 id="workspace-title">What would you like to translate?</h2></div><span id="model-family" class="model-chip">English → Indic · 200M</span></div>
+        <div class="workspace-heading">
+          <div>
+            <p class="eyebrow">TRANSLATION WORKSPACE</p>
+            <h2 id="workspace-title">What would you like to translate?</h2>
+          </div>
+          <span id="model-family" class="model-chip"
+            >English → Indic · 200M</span
+          >
+        </div>
         <div class="language-bar">
-          <label class="language-select"><span>FROM</span><select id="source-language" aria-label="Translate from"></select></label>
-          <button id="swap-languages" class="swap-button" type="button" aria-label="Swap source and target languages" title="Swap languages">⇄</button>
-          <label class="language-select"><span>TO</span><select id="target-language" aria-label="Translate to"></select></label>
+          <label class="language-select"
+            ><span>FROM</span
+            ><select id="source-language" aria-label="Translate from"></select
+          ></label>
+          <button
+            id="swap-languages"
+            class="swap-button"
+            type="button"
+            aria-label="Swap source and target languages"
+            title="Swap languages"
+          >
+            ⇄
+          </button>
+          <label class="language-select"
+            ><span>TO</span
+            ><select id="target-language" aria-label="Translate to"></select
+          ></label>
         </div>
+        <p class="input-limit-note">
+          Up to 20,000 characters. Long text is translated in multiple model
+          calls.
+        </p>
         <div class="translation-grid">
-          <section class="text-panel"><div class="panel-head"><label for="source-text">Your text</label><span id="source-language-label">English</span></div><textarea id="source-text" rows="8" maxlength="20000" placeholder="Enter your text here..." aria-label="Text to translate"></textarea><div class="panel-foot"><span id="character-count">0 / 20000</span><span id="word-count">0 words</span><button id="clear-source" class="text-button" type="button">Clear</button></div><button id="example-button" class="example-button" type="button">Try an example <span>“I am a Robotics and Artificial Intelligence student.”</span></button></section>
-          <section class="text-panel output-panel"><div class="panel-head"><span class="panel-title">Translation</span><span id="target-language-label">Tamil</span></div><div id="translation-output" class="translation-output" role="status" aria-live="polite">Your translation will appear here.</div><div class="panel-foot output-foot"><span id="translation-time">Translation time will appear here.</span><div><button id="copy-output" class="text-button" type="button" disabled>Copy</button><button id="clear-output" class="text-button" type="button">Clear</button></div></div><p id="output-model" class="output-model">Model details appear after translation.</p></section>
+          <section class="text-panel">
+            <div class="panel-head">
+              <label for="source-text">Your text</label
+              ><span id="source-language-label">English</span>
+            </div>
+            <textarea
+              id="source-text"
+              rows="8"
+              maxlength="20000"
+              placeholder="Enter your text here..."
+              aria-label="Text to translate"
+            ></textarea>
+            <div class="panel-foot">
+              <span id="character-count">0 / 20000</span
+              ><span id="word-count">0 words</span
+              ><button id="clear-source" class="text-button" type="button">
+                Clear
+              </button>
+            </div>
+            <button id="example-button" class="example-button" type="button">
+              Example in the selected language
+              <span
+                >“I am a Robotics and Artificial Intelligence student.”</span
+              >
+            </button>
+          </section>
+          <section class="text-panel output-panel">
+            <div class="panel-head">
+              <span class="panel-title">Translation</span
+              ><span id="target-language-label">Tamil</span>
+            </div>
+            <div
+              id="translation-output"
+              class="translation-output"
+              role="status"
+              aria-live="polite"
+            >
+              Your translation will appear here.
+            </div>
+            <div class="panel-foot output-foot">
+              <span id="translation-time"
+                >Translation time will appear here.</span
+              >
+              <div>
+                <button
+                  id="copy-output"
+                  class="text-button"
+                  type="button"
+                  disabled
+                >
+                  Copy</button
+                ><button id="clear-output" class="text-button" type="button">
+                  Clear
+                </button>
+              </div>
+            </div>
+            <p id="output-model" class="output-model">
+              Model details appear after translation.
+            </p>
+          </section>
         </div>
-        <div id="spelling-tools" class="spelling-tools" hidden><span class="spell-label">English spelling suggestion</span><span id="spelling-output"></span><button id="spelling-apply" class="text-button" type="button">Apply suggestion</button><button id="spelling-dismiss" class="text-button" type="button" aria-label="Dismiss spelling suggestion">Dismiss</button></div>
-        <div class="translate-row"><button id="translate-button" class="primary-button" type="button"><span class="button-spinner" aria-hidden="true"></span><span id="translate-label">Translate</span><span aria-hidden="true">→</span></button><span id="load-time" class="load-note">Model loads locally when needed</span><button id="unload-button" class="text-button unload-button" type="button" disabled>Unload model</button></div>
-        <div class="progress-panel" aria-live="polite"><div class="progress-copy"><span id="progress-message">Ready to translate offline</span><span id="progress-percent"></span></div><progress id="model-progress" max="100" value="0"></progress></div>
+        <div id="spelling-tools" class="spelling-tools" hidden>
+          <span class="spell-label">English spelling suggestion</span
+          ><span id="spelling-output"></span
+          ><button id="spelling-apply" class="text-button" type="button">
+            Apply suggestion</button
+          ><button
+            id="spelling-dismiss"
+            class="text-button"
+            type="button"
+            aria-label="Dismiss spelling suggestion"
+          >
+            Dismiss
+          </button>
+        </div>
+        <div class="translate-row">
+          <button id="translate-button" class="primary-button" type="button">
+            <span class="button-spinner" aria-hidden="true"></span
+            ><span id="translate-label">Translate</span
+            ><span aria-hidden="true">→</span></button
+          ><span id="load-time" class="load-note"
+            >Model loads locally when needed</span
+          ><button
+            id="unload-button"
+            class="text-button unload-button"
+            type="button"
+          >
+            Unload model
+          </button>
+        </div>
+        <div class="progress-panel" aria-live="polite">
+          <div class="progress-copy">
+            <span id="progress-message">Ready to translate</span
+            ><span id="progress-percent"></span>
+          </div>
+          <progress id="model-progress" max="100" value="0"></progress>
+        </div>
         <p id="error-message" class="error-message" role="alert" hidden></p>
       </section>
 
       <section class="lower-grid">
-        <details id="nlp-details" class="card nlp-details"><summary><span><b>NLP Processing Details</b><small>See how your input is prepared for the model</small></span><span class="chevron" aria-hidden="true">⌄</span></summary><div class="concept-note"><span>ⓘ</span><span>Tokenization divides text into model units; sentence segmentation groups text safely while preserving order.</span></div><dl id="diagnostics-grid" class="diagnostics-grid"><div class="empty-diagnostic">Diagnostics appear after a translation.</div></dl><div class="glossary-note">Glossary entries provide preferred terminology. Automatic application is enabled only where model placeholder preservation has been verified.</div></details>
-        <section class="card glossary-card"><div class="section-title"><div><p class="eyebrow">LOCAL TERMINOLOGY</p><h2>Glossary</h2></div><span id="glossary-count" class="count-chip">30 terms</span></div><p class="section-copy">Manage preferred terms for any supported language pair.</p><div class="glossary-controls"><label><span>FROM</span><select id="glossary-source-language" aria-label="Glossary source language"></select></label><label><span>TO</span><select id="glossary-target-language" aria-label="Glossary target language"></select></label></div><input id="glossary-search" class="search-input" type="search" placeholder="Search terms" aria-label="Search glossary" /><div id="glossary-list" class="glossary-list"></div><div class="glossary-add"><h3 id="glossary-form-title">Add a term</h3><input id="glossary-source-term" placeholder="Source term" aria-label="Glossary source term" /><input id="glossary-target-term" placeholder="Preferred translation" aria-label="Glossary target term" /><div><button id="glossary-save" class="small-primary" type="button">Add term</button><button id="glossary-cancel-edit" class="text-button" type="button" hidden>Cancel</button></div></div></section>
+        <details id="nlp-details" class="card nlp-details">
+          <summary>
+            <span
+              ><b>NLP Processing Details</b
+              ><small>See how your input is prepared for the model</small></span
+            ><span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="concept-note">
+            <span>ⓘ</span
+            ><span
+              >Tokenization divides text into model units; sentence segmentation
+              groups text safely while preserving order.</span
+            >
+          </div>
+          <dl id="diagnostics-grid" class="diagnostics-grid">
+            <div class="empty-diagnostic">
+              Diagnostics appear after a translation.
+            </div>
+          </dl>
+          <div class="glossary-note">
+            Glossary entries provide preferred terminology. Automatic
+            application is enabled only where model placeholder preservation has
+            been verified.
+          </div>
+        </details>
+        <section class="card glossary-card">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">LOCAL TERMINOLOGY</p>
+              <h2>Glossary</h2>
+            </div>
+            <span id="glossary-count" class="count-chip">30 terms</span>
+          </div>
+          <p class="section-copy">
+            Manage preferred terms for any supported language pair.
+          </p>
+          <div class="glossary-controls">
+            <label
+              ><span>FROM</span
+              ><select
+                id="glossary-source-language"
+                aria-label="Glossary source language"
+              ></select></label
+            ><label
+              ><span>TO</span
+              ><select
+                id="glossary-target-language"
+                aria-label="Glossary target language"
+              ></select
+            ></label>
+          </div>
+          <input
+            id="glossary-search"
+            class="search-input"
+            type="search"
+            placeholder="Search terms"
+            aria-label="Search glossary"
+          />
+          <div id="glossary-list" class="glossary-list"></div>
+          <div class="glossary-add">
+            <h3 id="glossary-form-title">Add a term</h3>
+            <input
+              id="glossary-source-term"
+              placeholder="Source term"
+              aria-label="Glossary source term"
+            /><input
+              id="glossary-target-term"
+              placeholder="Preferred translation"
+              aria-label="Glossary target term"
+            />
+            <div>
+              <button id="glossary-save" class="small-primary" type="button">
+                Add term</button
+              ><button
+                id="glossary-cancel-edit"
+                class="text-button"
+                type="button"
+                hidden
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </section>
       </section>
-      <p class="privacy-note"><span>▣</span> Your translations run locally. No translation API or cloud service is used.</p>
-      <pre id="smoke-output" class="smoke-output" hidden></pre>
+      <p class="privacy-note">
+        <span>▣</span> Your translations run locally. No translation API or
+        cloud service is used.
+      </p>
     </main>
 
-    <dialog id="history-dialog" class="app-dialog"><form method="dialog" class="dialog-top"><div><p class="eyebrow">ON THIS DEVICE</p><h2>Translation history</h2></div><button class="icon-button" aria-label="Close history">×</button></form><div id="history-list" class="history-list"></div><div class="dialog-actions"><button id="history-clear" class="text-button" type="button">Clear history</button><button class="small-primary" type="button" data-close-dialog="history-dialog">Done</button></div></dialog>
-    <dialog id="settings-dialog" class="app-dialog"><form method="dialog" class="dialog-top"><div><p class="eyebrow">PREFERENCES</p><h2>Settings</h2></div><button class="icon-button" aria-label="Close settings">×</button></form><label class="setting-row"><span><b>Save translation history</b><small>Keep up to 20 successful translations in this browser.</small></span><input id="history-enabled" type="checkbox" checked /></label><button id="settings-clear-history" class="text-button" type="button">Clear translation history</button><button id="settings-clear-glossary" class="text-button danger-text" type="button">Clear glossary data</button><label class="setting-row"><span><b>Developer diagnostics</b><small>Show extra model details in the output area.</small></span><input id="developer-mode" type="checkbox" /></label><div class="settings-info"><p>TriLingua <b>v0.4.0</b></p><p>Available local model families</p><ul><li>English–Indic · 200M</li><li>Indic–English · 200M</li><li>Indic–Indic · 320M</li></ul><p id="settings-model-status">Model status: Not loaded</p></div></dialog>
+    <dialog id="history-dialog" class="app-dialog">
+      <form method="dialog" class="dialog-top">
+        <div>
+          <p class="eyebrow">ON THIS DEVICE</p>
+          <h2>Translation history</h2>
+        </div>
+        <button class="icon-button" aria-label="Close history">×</button>
+      </form>
+      <div id="history-list" class="history-list"></div>
+      <div class="dialog-actions">
+        <button id="history-clear" class="text-button" type="button">
+          Clear history</button
+        ><button
+          class="small-primary"
+          type="button"
+          data-close-dialog="history-dialog"
+        >
+          Done
+        </button>
+      </div>
+    </dialog>
+    <dialog id="settings-dialog" class="app-dialog">
+      <form method="dialog" class="dialog-top">
+        <div>
+          <p class="eyebrow">PREFERENCES</p>
+          <h2>Settings</h2>
+        </div>
+        <button class="icon-button" aria-label="Close settings">×</button>
+      </form>
+      <label class="setting-row"
+        ><span
+          ><b>Save translation history</b
+          ><small
+            >Keep up to 20 successful translations in this browser on this
+            device.</small
+          ></span
+        ><input id="history-enabled" type="checkbox" checked /></label
+      ><button id="settings-clear-history" class="text-button" type="button">
+        Clear translation history</button
+      ><button
+        id="settings-clear-glossary"
+        class="text-button danger-text"
+        type="button"
+      >
+        Clear glossary data</button
+      ><label class="setting-row"
+        ><span
+          ><b>Developer diagnostics</b
+          ><small>Show extra model details in the output area.</small></span
+        ><input id="developer-mode" type="checkbox"
+      /></label>
+      <div class="settings-info">
+        <p>TriLingua <b id="app-version"></b></p>
+        <p>Model families available when installed</p>
+        <ul>
+          <li>English–Indic · 200M</li>
+          <li>Indic–English · 200M</li>
+          <li>Indic–Indic · 320M</li>
+        </ul>
+        <p id="settings-model-status">Model status: Not loaded</p>
+      </div>
+    </dialog>
 
     <script type="module" src="/src/js/app.js"></script>
   </body>

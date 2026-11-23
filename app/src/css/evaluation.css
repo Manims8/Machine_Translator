@@ -1,1 +1,48 @@
-body{margin:0;background:#f5f7f6;color:#192b29;font:16px Arial,sans-serif}main{max-width:900px;margin:40px auto;padding:24px;background:#fff;border:1px solid #e2e9e6;border-radius:16px}label{display:inline-grid;gap:8px;margin:12px}button,select,input{padding:10px;border:1px solid #dce5e1;border-radius:8px;background:white}button{cursor:pointer;color:#fff;background:#174c46;margin:6px}progress{display:block;width:100%;margin:18px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f6f8f7;padding:16px;border-radius:10px;min-height:100px}
+body {
+  margin: 0;
+  background: #f5f7f6;
+  color: #192b29;
+  font:
+    16px Arial,
+    sans-serif;
+}
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #e2e9e6;
+  border-radius: 16px;
+}
+label {
+  display: inline-grid;
+  gap: 8px;
+  margin: 12px;
+}
+button,
+select,
+input {
+  padding: 10px;
+  border: 1px solid #dce5e1;
+  border-radius: 8px;
+  background: white;
+}
+button {
+  cursor: pointer;
+  color: #fff;
+  background: #174c46;
+  margin: 6px;
+}
+progress {
+  display: block;
+  width: 100%;
+  margin: 18px 0;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: #f6f8f7;
+  padding: 16px;
+  border-radius: 10px;
+  min-height: 100px;
+}
