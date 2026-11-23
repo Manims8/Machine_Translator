@@ -1,83 +1,194 @@
 # TriLingua
 
-TriLingua is a local English, Tamil, and Kannada machine translation project. It uses downloaded IndicTrans2 ONNX models and ONNX Runtime Web in the browser. Stage 3 adds explainable preprocessing and model-tokenizer-based chunking; Stage 4 provides a responsive translation workspace with local history, glossary tools, and settings.
+TriLingua is an offline browser application for neural machine translation between English, Tamil, and Kannada. It runs local IndicTrans2 ONNX models through ONNX Runtime Web and includes an NLP preprocessing pipeline, translation history, glossary controls, entity protection, spelling assistance, and evaluation tools.
 
 ## Features
 
-- Translate between English, Tamil, and Kannada in all six directions.
-- Run IndicTrans2 locally in the browser without a translation API.
-- Inspect actual NLP and tokenizer diagnostics.
-- Manage preferred terminology and optional English spelling suggestions.
-- Keep up to 20 successful translations in local browser storage; history can be disabled.
-- Use responsive desktop and mobile layouts with Tamil/Kannada system-font fallbacks.
+- Translate in all six language directions:
+  - English -> Tamil
+  - English -> Kannada
+  - Tamil -> English
+  - Kannada -> English
+  - Tamil -> Kannada
+  - Kannada -> Tamil
+- Run inference locally in the browser without a translation API.
+- Use local ONNX models, tokenizers, and model configurations.
+- Chunk long inputs by sentence and token budget.
+- Apply Unicode normalization, entity protection, glossary matching, and postprocessing.
+- Keep recent successful translations in local browser storage, with history disabling available.
+- Run browser smoke tests and the local evaluation pipeline.
 
-## Screenshots
+## Technologies
 
-Screenshots will be added after a visual browser capture is performed. No fabricated images are included.
+- JavaScript ES modules
+- Vite 8.3.8
+- ONNX Runtime Web 1.21.0
+- Transformers.js 3.0.2
+- IndicTrans2 ONNX models
+- Python 3.12
+- Indic NLP Library 0.92
+- SacreBLEU 2.6.0
 
-## Supported directions
+## Supported languages
 
-- English ↔ Tamil
-- English ↔ Kannada
-- Tamil ↔ Kannada
+| UI language | Language tag |
+|---|---|
+| English | eng_Latn |
+| Tamil | tam_Taml |
+| Kannada | kan_Knda |
 
-Language tags are `eng_Latn`, `tam_Taml`, and `kan_Knda`. The router selects the English-to-Indic, Indic-to-English, or Indic-to-Indic model family for each pair.
+## Folder structure
 
-## Run the development app
+```text
+app/                         Browser application
+  index.html                 Translation interface
+  evaluation.html            Local benchmark runner
+  src/js/                    Translation, NLP, model, history, and UI modules
+  src/css/                   Styling and responsive layouts
+documentation/               Original focused architecture and evaluation notes
+docs/                        Final documentation and stage prompts
+evaluation/                  Benchmark datasets, predictions, references, and results
+models/indictrans2/          Local IndicTrans2 ONNX snapshots
+resources/indic_nlp_resources/ Local Indic NLP resources
+scripts/                     Download, verification, testing, and scoring scripts
+references/                  Third-party demonstration reference
+package.json                 Node dependencies and commands
+requirements.txt             Canonical Python dependencies
+```
 
-Use Node.js and npm already installed for this project. From the repository root:
+## Models
+
+Three model families are required:
+
+| Family | Local directory | Directions |
+|---|---|---|
+| English to Indic 200M | `models/indictrans2/en-indic-200m-fp32` | English -> Tamil/Kannada |
+| Indic to English 200M | `models/indictrans2/indic-en-200m-fp32` | Tamil/Kannada -> English |
+| Indic to Indic 320M | `models/indictrans2/indic-indic-320m-fp32` | Tamil <-> Kannada |
+
+Each family requires its encoder, decoder, decoder-with-past graphs, external ONNX weight sidecars, source/target tokenizers, configuration, generation configuration, and metadata. The complete layout is recorded in `models/indictrans2/model_manifest.json`. The model README is at `models/README.md`.
+
+The model files are large and are intentionally not copied into the frontend build. Vite serves them from `models/` in development and the browser loads them locally.
+
+## Installation
+
+### JavaScript application
+
+Requirements: Node.js 20.19 or newer, or Node.js 22.12 or newer for Vite 8.
 
 ```powershell
+npm.cmd install
 npm.cmd run dev -- --host 127.0.0.1
 ```
 
-Open the local URL printed by Vite. In PowerShell, `npm.ps1` may be blocked by execution policy, so use `npm.cmd`.
+Open the URL printed by Vite.
 
-Build the frontend with:
+### Python evaluation environment
+
+From the repository root:
+
+```powershell
+python -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+The `sacrebleu==2.6.0` and `indic-nlp-library==0.92` versions are the pinned scoring versions used by the benchmark.
+
+## Usage
+
+1. Select source and target languages.
+2. Enter text in the translation workspace.
+3. Select Translate.
+4. Review the output, progress, timing, and NLP diagnostics.
+5. Optionally manage glossary entries or English spelling suggestions.
+6. Successful translations can be kept in local browser history, subject to the history setting.
+
+## Offline operation
+
+The application blocks remote translation services and loads models from the local Vite server or deployed static assets. The browser smoke test also blocks external HTTPS requests and verifies that translation can complete using localhost assets. Offline operation requires the downloaded model snapshots and ONNX Runtime Web assets to remain available.
+
+Service-worker/PWA installation and cached-asset behavior for disconnected use after deployment should not be assumed; verification currently covers the existing local-server and browser smoke procedure.
+
+## Testing
+
+Run the JavaScript NLP component tests:
+
+```powershell
+node scripts/test_nlp_components.mjs
+```
+
+Run the Python Indic NLP test:
+
+```powershell
+python scripts/test_indicnlp.py
+```
+
+Build the frontend:
 
 ```powershell
 npm.cmd run build
 ```
 
-Run all six browser translation smoke tests, error checks, and the offline refresh check with:
+Run the browser smoke test for all six directions:
 
 ```powershell
 npm.cmd run smoke
 ```
 
-The smoke runner uses headless Chrome or Edge and writes actual translations, model loading times, translation times, and statuses to `evaluation/preliminary_smoke_tests.json`.
+The smoke test launches Vite and Chrome or Edge, blocks external HTTPS requests, verifies local model assets, and records its output in `evaluation/preliminary_smoke_tests.json`.
 
-## How translation works
+## Evaluation
 
-1. `modelRouter.js` chooses one model family for the requested language pair.
-2. The engine loads that family's local configuration, source and target tokenizers, external ONNX weights, and three ONNX graphs.
-3. Indic input is converted to the shared internal script, then tokenized with source and target language tags.
-4. The encoder reads the source tokens. The decoder generates one token at a time and reuses its key/value cache between steps.
-5. The target tokenizer decodes the generated IDs. Indic output is converted into the requested Tamil or Kannada script.
+The full evaluation uses the FLORES-200 devtest set with 1,012 sentence pairs in each of six directions, totaling 6,072 predictions.
 
-Only one model family is kept loaded at a time. Models and tokenizer files are served by Vite from `models/indictrans2/`; the 3.2 GiB of model data is not copied into the web build. The WASM runtime is served from the locally installed npm package. The translation pipeline does not use Hugging Face model downloads, CDNs, or a translation API.
+The canonical result files are:
 
-See [the engine architecture notes](documentation/architecture/translation_engine.md) for module responsibilities and the token-generation flow.
+- `evaluation/results/final_results.json`
+- `evaluation/results/failed_predictions.json`
+- `evaluation/results/full_benchmark_audit.md`
+- `evaluation/results/full_benchmark_validation_report.json`
+- `evaluation/results/full_benchmark_summary.md`
+- `evaluation/results/qualitative_error_analysis.md`
 
-## Models
+Pilot artifacts remain in `evaluation/results/` and use `pilot` in their filenames. Full-mode scoring reads only un-suffixed full prediction and reference files.
 
-- English → Tamil/Kannada: `hari31416/indictrans2-en-indic-dist-200M-ONNX`.
-- Tamil/Kannada → English: `hari31416/indictrans2-indic-en-dist-200M-ONNX`.
-- Tamil ↔ Kannada: `hari31416/indictrans2-indic-indic-dist-320M-ONNX`.
-
-Model weights are downloaded separately and must not be committed to Git. `.gitignore` excludes the weight folders while keeping the model manifest trackable. The checked-in `plan` files describe the Stage 1 and Stage 2 work.
-
-## First-time environment setup
-
-The project currently has a Python 3.12 virtual environment. To use it in PowerShell:
+Validation:
 
 ```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
+python scripts/score_evaluation.py --mode full --expected-count 1012 --validate-only
+python scripts/score_evaluation.py --mode full --expected-count 1012
 ```
 
-Python 3.11 was not installed during Stage 1; install it from [the official Python downloads page](https://www.python.org/downloads/) only if your assignment requires that version. The Stage 1 model download and verification scripts are `scripts/download_models.py` and `scripts/verify_models.py`.
+The first command validates inputs only; the second writes full-benchmark results. Do not rerun translations or alter prediction/reference data.
 
-The model documentation is in `models/README.md`; model names, file mappings, and verification status are in `models/indictrans2/model_manifest.json`.
+## Final benchmark summary
 
-The original browser demo is kept unchanged as a Git submodule under `references/indictrans2-onnx-browser-demo/`. Clone this project with `git clone --recurse-submodules` to fetch it, or run `git submodule update --init --recursive` after cloning.
+| Direction | BLEU | chrF++ |
+|---|---:|---:|
+| English -> Tamil | 17.776693 | 54.585597 |
+| English -> Kannada | 19.255344 | 53.568908 |
+| Tamil -> English | 32.204653 | 57.437847 |
+| Kannada -> English | 32.742676 | 58.270864 |
+| Tamil -> Kannada | 11.045295 | 43.288348 |
+| Kannada -> Tamil | 11.535107 | 46.072020 |
+
+Macro-average BLEU: **20.759961**
+Macro-average chrF++: **52.203931**
+
+## Documentation
+
+- Central technical reference: `docs/final_project_documentation_evidence.md`
+- Repository cleanup inventory: `docs/repository_cleanup_inventory.md`
+- Repository cleanup report: `docs/repository_cleanup_report.md`
+- Existing focused architecture notes remain under `documentation/` for historical and module-specific context.
+
+## Known limitations
+
+- Browser performance depends on device memory and CPU.
+- Entity and glossary marker protection is direction-dependent and is disabled or reference-only where not verified.
+- Direct Tamil<->Kannada translation has the weakest benchmark results and more repetition/entity failures.
+- Named entities, clinical terms, legal terms, numbers, and quotes require human review.
+- No Android APK or native mobile inference artifact is claimed.
+- The project does not claim an always-disconnected PWA deployment until a full disconnected deployment test is added.

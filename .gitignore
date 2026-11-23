@@ -20,6 +20,7 @@ test-results/
 browser-profile/
 evaluation/checkpoints/
 evaluation/logs/
+evaluation/test_runs/
 
 # Local FLORES benchmark data
 evaluation/dataset/flores200_devtest_parallel.jsonl
