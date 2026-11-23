@@ -39,7 +39,7 @@ def validate(refs,preds,src,tgt,source_key,target_key,expected):
         if p.get('reference')!=r.get('reference'):errors.append(f'{ident}: reference alignment mismatch')
     return errors
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--mode',choices=['pilot','full'],default='full');ap.add_argument('--expected-count',type=int);ap.add_argument('--validate-only',action='store_true');ap.add_argument('--predictions-dir',type=Path,default=ROOT/'predictions');ap.add_argument('--references-dir',type=Path,default=ROOT/'references');a=ap.parse_args();expected=a.expected_count or (25 if a.mode=='pilot' else 1012)
+    ap=argparse.ArgumentParser();ap.add_argument('--mode',choices=['pilot','full'],default='full');ap.add_argument('--expected-count',type=int);ap.add_argument('--validate-only',action='store_true');ap.add_argument('--predictions-dir',type=Path,default=ROOT/'predictions');ap.add_argument('--references-dir',type=Path,default=ROOT/'references');ap.add_argument('--output-dir',type=Path,default=ROOT/'results');a=ap.parse_args();expected=a.expected_count or (25 if a.mode=='pilot' else 1012)
     failures=[];results=[]
     for src,tgt,_,_ in PAIRS:
         name=f'{src}-{tgt}';suffix='-pilot' if a.mode=='pilot' else '';rp=a.references_dir/f'{name}{suffix}.jsonl';pp=a.predictions_dir/f'{name}{suffix}.jsonl'
@@ -57,7 +57,7 @@ def main():
         bleu_metric=BLEU(tokenize=tokenize,smooth_method='exp');bleu=bleu_metric.corpus_score(hyp,[ref]);chrf_metric=CHRF(word_order=2);chrf=chrf_metric.corpus_score(hyp,[ref])
         times=[float(predmap[x['id']]['translation_time_ms']) for x in refs]
         results.append({'direction':name,'status':'complete','sentences':expected,'successful':sum(p.get('status') == 'success' for p in preds),'failed':sum(p.get('status') != 'success' for p in preds),'bleu':bleu.score,'bleu_signature':str(bleu_metric.get_signature()),'precisions':bleu.precisions,'brevity_penalty':bleu.bp,'chrf++':chrf.score,'chrf_signature':str(chrf_metric.get_signature()),'time_mean_ms':statistics.mean(times),'time_median_ms':statistics.median(times),'sacrebleu':sacrebleu.__version__,'indicnlp':'0.92','preprocessing':'IndicNormalizerFactory + trivial_tokenize; English 13a','examples':[{'id':x['id'],'source':x['source'],'reference':x['reference'],'prediction':predmap[x['id']]['prediction']} for x in refs[:3]]})
-    out=ROOT/'results';out.mkdir(exist_ok=True)
+    out=a.output_dir;out.mkdir(parents=True,exist_ok=True)
     failure_name='pilot_failed_predictions.json' if a.mode=='pilot' else 'failed_predictions.json'
     (out/failure_name).write_text(json.dumps(failures,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     if failures:print(json.dumps({'valid':False,'failed_directions':len(failures)}));sys.exit(2)

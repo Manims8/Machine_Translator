@@ -8,8 +8,8 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const appUrl = 'http://127.0.0.1:5173/?run-smoke=1'
-const outputPath = path.join(root, 'evaluation', 'preliminary_smoke_tests.json')
+const appUrl = 'http://127.0.0.1:5173/?run-smoke=1&models=quantized'
+const outputPath = path.join(root, 'evaluation', 'results', 'int8', 'browser_smoke_tests.json')
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -142,10 +142,11 @@ try {
 
   const requiredAssetChecks = []
   for (const url of [
-    'http://127.0.0.1:5173/indictrans2/en-indic-200m-fp32/encoder_model.onnx',
-    'http://127.0.0.1:5173/indictrans2/en-indic-200m-fp32/encoder_model.onnx.data',
-    'http://127.0.0.1:5173/indictrans2/en-indic-200m-fp32/decoder_shared.onnx.data',
-    'http://127.0.0.1:5173/indictrans2/en-indic-200m-fp32/tokenizer_src.json',
+    'http://127.0.0.1:5173/quantized/en-indic-200m-fp32/encoder_model.onnx',
+    'http://127.0.0.1:5173/quantized/en-indic-200m-fp32/encoder_model.onnx.data',
+    'http://127.0.0.1:5173/quantized/en-indic-200m-fp32/decoder_model.onnx.data',
+    'http://127.0.0.1:5173/quantized/en-indic-200m-fp32/decoder_with_past_model.onnx.data',
+    'http://127.0.0.1:5173/quantized/en-indic-200m-fp32/tokenizer_src.json',
   ]) {
     const response = await fetch(url, { method: 'HEAD' })
     requiredAssetChecks.push({ url: new URL(url).pathname, status: response.status, contentLength: Number(response.headers.get('content-length') ?? 0) })
@@ -240,7 +241,7 @@ try {
   }
 
   process.stdout.write('\nRefreshing the page and repeating a translation while external DNS remains blocked.\n')
-  const refreshUrl = 'http://127.0.0.1:5173/?offline-refresh=1'
+  const refreshUrl = 'http://127.0.0.1:5173/?offline-refresh=1&models=quantized'
   await devtools.send('Page.navigate', { url: refreshUrl })
   const refreshDeadline = Date.now() + 30_000
   let refreshReady = false
@@ -376,7 +377,6 @@ try {
     offlineRefresh: offlineRefreshResult.status,
     errorHandling: { passed: errorHandling.passed, failed: errorHandling.failed },
   }
-  await writeFile(path.join(root, 'evaluation', 'nlp_pipeline_tests.json'), `${JSON.stringify(pipelineReport, null, 2)}\n`, 'utf8')
   process.stdout.write(`\nSaved browser results to ${outputPath}\n`)
   process.stdout.write(`Six directions: ${output.passed ?? 0} passed, ${output.failed ?? 0} failed.\n`)
   process.stdout.write(`Offline refresh test: ${offlineRefreshResult.status}. External origins requested: ${externalRequests.size}.\n`)

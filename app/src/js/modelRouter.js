@@ -1,6 +1,7 @@
 import { getLanguageCode, LANGUAGES } from './language.js'
 
-const ROOT = '/indictrans2'
+const USE_QUANTIZED_MODELS = new URLSearchParams(globalThis.location?.search ?? '').get('models') === 'quantized'
+const ROOT = USE_QUANTIZED_MODELS ? '/quantized' : '/indictrans2'
 const GRAPHS = Object.freeze({
   encoder: 'encoder_model.onnx',
   decoder: 'decoder_model.onnx',
@@ -26,12 +27,12 @@ function buildFamily({ id, label, folder, direction, baseModelParameterSize }) {
       target: `${basePath}/tokenizer_tgt.json`,
     }),
     graphs: GRAPHS,
-    // These names were read from the external-data references in each ONNX
-    // graph. Encoder weights are separate; both decoder graphs share a file.
+    // Read these names from each graph's external-data references. FP32
+    // decoder graphs share one sidecar; quantized decoders use separate files.
     externalDataByGraph: Object.freeze({
       [GRAPHS.encoder]: Object.freeze(['encoder_model.onnx.data']),
-      [GRAPHS.decoder]: Object.freeze(['decoder_shared.onnx.data']),
-      [GRAPHS.decoderWithPast]: Object.freeze(['decoder_shared.onnx.data']),
+      [GRAPHS.decoder]: Object.freeze([USE_QUANTIZED_MODELS ? 'decoder_model.onnx.data' : 'decoder_shared.onnx.data']),
+      [GRAPHS.decoderWithPast]: Object.freeze([USE_QUANTIZED_MODELS ? 'decoder_with_past_model.onnx.data' : 'decoder_shared.onnx.data']),
     }),
   })
 }

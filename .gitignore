@@ -6,6 +6,7 @@ dist/
 .ruff_cache/
 models/indictrans2/*
 !models/indictrans2/model_manifest.json
+models/quantized/
 resources/indic_nlp_resources/
 __pycache__/
 *.pyc

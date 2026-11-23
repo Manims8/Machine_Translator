@@ -1,0 +1,41 @@
+{
+  "models": "quantized",
+  "families": {
+    "en-indic-200m": {
+      "captured_after_sample_id": 5,
+      "model_load_time_ms": 3651.5,
+      "js_heap_used_bytes": 52965076,
+      "js_heap_total_bytes": 94416896,
+      "wasm_and_arraybuffer_backing_store_bytes": 527694373,
+      "renderer_private_memory_bytes": null,
+      "renderer_resident_set_bytes": null,
+      "cdp_heap_error": null,
+      "cdp_performance_error": null,
+      "note": "V8 backingStorageSize is a WASM/ArrayBuffer proxy, not an isolated ONNX WASM memory counter."
+    },
+    "indic-en-200m": {
+      "captured_after_sample_id": 5,
+      "model_load_time_ms": 3097.300000011921,
+      "js_heap_used_bytes": 52709864,
+      "js_heap_total_bytes": 104640512,
+      "wasm_and_arraybuffer_backing_store_bytes": 465905684,
+      "renderer_private_memory_bytes": null,
+      "renderer_resident_set_bytes": null,
+      "cdp_heap_error": null,
+      "cdp_performance_error": null,
+      "note": "V8 backingStorageSize is a WASM/ArrayBuffer proxy, not an isolated ONNX WASM memory counter."
+    },
+    "indic-indic-320m": {
+      "captured_after_sample_id": 5,
+      "model_load_time_ms": 4049.5,
+      "js_heap_used_bytes": 70328276,
+      "js_heap_total_bytes": 145637376,
+      "wasm_and_arraybuffer_backing_store_bytes": 568092118,
+      "renderer_private_memory_bytes": null,
+      "renderer_resident_set_bytes": null,
+      "cdp_heap_error": null,
+      "cdp_performance_error": null,
+      "note": "V8 backingStorageSize is a WASM/ArrayBuffer proxy, not an isolated ONNX WASM memory counter."
+    }
+  }
+}

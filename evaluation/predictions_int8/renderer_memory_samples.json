@@ -1,0 +1,86 @@
+﻿[
+    {
+        "family":  "en-indic-200m",
+        "captured_at":  "2026-11-23T05:05:03.7297270Z",
+        "renderer_processes":  [
+                                   {
+                                       "Id":  12744,
+                                       "WorkingSet64":  31604736,
+                                       "PrivateMemorySize64":  15192064
+                                   },
+                                   {
+                                       "Id":  17444,
+                                       "WorkingSet64":  49704960,
+                                       "PrivateMemorySize64":  20561920
+                                   },
+                                   {
+                                       "Id":  19644,
+                                       "WorkingSet64":  63688704,
+                                       "PrivateMemorySize64":  24776704
+                                   },
+                                   {
+                                       "Id":  23932,
+                                       "WorkingSet64":  786059264,
+                                       "PrivateMemorySize64":  812347392
+                                   }
+                               ],
+        "renderer_rss_total_bytes":  931057664,
+        "renderer_private_total_bytes":  872878080
+    },
+    {
+        "family":  "indic-en-200m",
+        "captured_at":  "2026-11-23T05:07:00.0045138Z",
+        "renderer_processes":  [
+                                   {
+                                       "Id":  12744,
+                                       "WorkingSet64":  31600640,
+                                       "PrivateMemorySize64":  15122432
+                                   },
+                                   {
+                                       "Id":  17444,
+                                       "WorkingSet64":  49704960,
+                                       "PrivateMemorySize64":  20561920
+                                   },
+                                   {
+                                       "Id":  19644,
+                                       "WorkingSet64":  63676416,
+                                       "PrivateMemorySize64":  24776704
+                                   },
+                                   {
+                                       "Id":  23932,
+                                       "WorkingSet64":  1351938048,
+                                       "PrivateMemorySize64":  1378430976
+                                   }
+                               ],
+        "renderer_rss_total_bytes":  1496920064,
+        "renderer_private_total_bytes":  1438892032
+    },
+    {
+        "family":  "indic-indic-320m",
+        "captured_at":  "2026-11-23T05:12:57.0232856Z",
+        "renderer_processes":  [
+                                   {
+                                       "Id":  12744,
+                                       "WorkingSet64":  32301056,
+                                       "PrivateMemorySize64":  15417344
+                                   },
+                                   {
+                                       "Id":  17444,
+                                       "WorkingSet64":  49704960,
+                                       "PrivateMemorySize64":  20561920
+                                   },
+                                   {
+                                       "Id":  19644,
+                                       "WorkingSet64":  63877120,
+                                       "PrivateMemorySize64":  25100288
+                                   },
+                                   {
+                                       "Id":  23932,
+                                       "WorkingSet64":  1550184448,
+                                       "PrivateMemorySize64":  1528164352
+                                   }
+                               ],
+        "renderer_rss_total_bytes":  1696067584,
+        "renderer_private_total_bytes":  1589243904
+    }
+]
