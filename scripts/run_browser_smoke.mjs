@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const appUrl = 'http://127.0.0.1:5173/?run-smoke=1&models=quantized'
-const outputPath = path.join(root, 'evaluation', 'results', 'int8', 'browser_smoke_tests.json')
+const outputPath = path.join(root, 'evaluation', 'android_stage8_3a_browser_smoke.json')
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -126,6 +126,7 @@ let browser
 let devtools
 let profileDir
 const externalRequests = new Set()
+const localRequests = new Set()
 const localRuntimeRequests = new Set()
 const browserErrors = []
 
@@ -196,7 +197,10 @@ try {
     try {
       const parsed = new URL(request.url)
       if (!['127.0.0.1', 'localhost'].includes(parsed.hostname)) externalRequests.add(parsed.origin)
-      else if (/ort-wasm|ort\.wasm\.bundle/i.test(parsed.pathname)) localRuntimeRequests.add(parsed.pathname)
+      else {
+        localRequests.add(`${parsed.origin}${parsed.pathname}`)
+        if (/ort-wasm|ort\.wasm\.bundle/i.test(parsed.pathname)) localRuntimeRequests.add(parsed.pathname)
+      }
     } catch {
       // Ignore browser-internal URLs.
     }
@@ -269,6 +273,7 @@ try {
     longInputTokenizationTest,
     errorHandling,
     localAssetChecks: requiredAssetChecks,
+    localRequests: [...localRequests],
     localRuntimeRequests: [...localRuntimeRequests],
     externalOriginsRequested: [...externalRequests],
     browserErrors,

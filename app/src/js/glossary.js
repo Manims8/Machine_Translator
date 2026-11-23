@@ -1,3 +1,5 @@
+import { createId } from './id.js'
+
 const STORAGE_KEY = 'trilingua-glossary-v1'
 const LANG = { en: 'eng_Latn', ta: 'tam_Taml', kn: 'kan_Knda' }
 const TERMS = [
@@ -50,7 +52,7 @@ export function addGlossaryEntry(entry) {
   const validation = validateGlossaryEntry(entry)
   if (!validation.valid) throw new Error(validation.errors.join(' '))
   const entries = readEntries()
-  const added = { ...entry, id: entry.id ?? `user-${crypto.randomUUID()}`, enabled: entry.enabled ?? true, sample: false }
+  const added = { ...entry, id: entry.id ?? `user-${createId()}`, enabled: entry.enabled ?? true, sample: false }
   writeEntries([...entries, added])
   return added
 }

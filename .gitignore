@@ -23,6 +23,19 @@ evaluation/checkpoints/
 evaluation/logs/
 evaluation/test_runs/
 
+# Capacitor Android build output and locally staged assets/toolchain
+/android/.gradle/
+/android/build/
+/android/app/build/
+/android/local.properties
+/android/app/src/main/assets/public/
+/android/app/src/main/assets/capacitor.config.json
+/dist/quantized/
+/.tools/
+/.npm-cache/
+/.gradle-user-home/
+/.android-sdk/
+
 # Local FLORES benchmark data
 evaluation/dataset/flores200_devtest_parallel.jsonl
 evaluation/predictions/

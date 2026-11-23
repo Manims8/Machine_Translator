@@ -14,9 +14,12 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@capacitor/cli": "8.6.2",
     "vite": "^8.3.8"
   },
   "dependencies": {
+    "@capacitor/android": "8.6.2",
+    "@capacitor/core": "8.6.2",
     "@huggingface/transformers": "^3.0.2",
     "onnxruntime-web": "^1.21.0"
   }

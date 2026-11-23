@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 const projectRoot = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
+  base: process.env.VITE_BASE ?? '/',
   // Serve the app from app/ and expose the already-downloaded models as public
   // URLs without copying their 3.2 GiB into dist/.
   root: 'app',

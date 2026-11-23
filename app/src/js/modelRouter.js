@@ -1,6 +1,6 @@
 import { getLanguageCode, LANGUAGES } from './language.js'
 
-const USE_QUANTIZED_MODELS = new URLSearchParams(globalThis.location?.search ?? '').get('models') === 'quantized'
+const USE_QUANTIZED_MODELS = import.meta.env?.VITE_MODELS === 'quantized' || new URLSearchParams(globalThis.location?.search ?? '').get('models') === 'quantized'
 const ROOT = USE_QUANTIZED_MODELS ? '/quantized' : '/indictrans2'
 const GRAPHS = Object.freeze({
   encoder: 'encoder_model.onnx',
